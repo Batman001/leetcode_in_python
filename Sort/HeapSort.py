@@ -6,7 +6,7 @@
 def build_heap(heap):
     heap_size = len(heap)
     for i in range(int(heap_size/2)-1,-1,-1):       #循环至root根节点结束
-        maxify(heap, i)
+        max_modify(heap, i)
 
 '''
 heap_sort方法遍历n次，每次将heap的堆尾元素与堆头元素进行替换
@@ -18,12 +18,12 @@ def heap_sort(heap):
         heap_size = len(heap)
         heap[0],heap[heap_size-1] = heap[heap_size-1],heap[0]
         result.append(heap.pop())
-        maxify(heap, 0)
+        max_modify(heap, 0)
     return result
 
 
 '''
-maxify方法动态调整堆，使得堆始终保持根节点的值大于左右孩子节点值
+max_modify方法动态调整堆，使得堆始终保持根节点的值大于左右孩子节点值
 结束条件： 如果largest等于i说明i是最大元素 或者 largest超出heap范围 说明不存在比i节点大的孩子节点
 
 调整完当前根节点之后，递归调用maxify方法
@@ -31,7 +31,7 @@ maxify方法动态调整堆，使得堆始终保持根节点的值大于左右�
 '''
 
 
-def maxify(heap, i):
+def max_modify(heap, i):
     heap_size = len(heap)
     left = Left(i)
     right = Right(i)
@@ -47,7 +47,7 @@ def maxify(heap, i):
     temp = heap[i]
     heap[i] = heap[largest]
     heap[largest] = temp
-    maxify(heap, largest)
+    max_modify(heap, largest)
 
 
 '''
