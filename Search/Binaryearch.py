@@ -4,18 +4,21 @@
 '''
 二分查找递归实现
 '''
-def searchArray(sortArray, target, begin, end):
+def search_array(sortArray, target, begin, end):
     if(begin>end):
         return False
     mid = (begin+end)/2
     if (target == sortArray[mid]):
         return True
     elif target < sortArray[mid]:
-        return searchArray(sortArray, target, begin, mid - 1)
+        return search_array(sortArray, target, begin, mid - 1)
     else:
-        return searchArray(sortArray, target, mid+1, end)
+        return search_array(sortArray, target, mid+1, end)
 
-def searchArray_(sortArray, target):
+'''
+二分查找非递归实现
+'''
+def search_array_(sortArray, target):
     begin = 0
     end = len(sortArray) - 1
     while(begin <= end):
@@ -27,8 +30,6 @@ def searchArray_(sortArray, target):
         else:
             end = mid -1
     return False
-
-
 
 '''
 给定一个排序数组nums(无重复元素)与目标值target，
@@ -104,8 +105,8 @@ if __name__ == "__main__":
     result_ = []
 
     for item in b:
-        result.append(searchArray(a,item,0,len(a)))
-        result_.append(searchArray_(a, item))
+        result.append(search_array(a,item,0,len(a)))
+        result_.append(search_array_(a, item))
     #print(u"递归实现二分查找结果如下", result)
     #print(u"非递归实现二分查找", result_)
 
