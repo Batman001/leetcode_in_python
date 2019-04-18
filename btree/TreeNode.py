@@ -249,7 +249,8 @@ if __name__ == "__main__":
     tree.print_tree(save_path='/Users/sunchao/Desktop/tree.gv', label=True)
 
     array = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    tree_ = CreateTree(array).create_tree_by_list()
+    array1 = '49051'
+    tree_ = CreateTree(array1).create_tree_by_list()
     tree_.print_tree(save_path='/Users/sunchao/Desktop/tree_.gv', label=True)
 
 
