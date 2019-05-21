@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 class Solution(object):
 
     def find_unsorted_subarray(self, nums):
@@ -31,10 +32,8 @@ class Solution(object):
         return end - beg + 1
 
 
-
-
 if __name__ == "__main__":
-    nums = [2,6,4,8,10,9,15]
+    nums = [2, 6, 4, 8, 10, 9, 15]
     s = Solution()
     result = s.find_unsorted_subarray(nums)
     print(result)
