@@ -31,14 +31,15 @@ class Solution(object):
         row = len(matrix)
         col = len(matrix[0])
         i, j = row-1, 0
-        while i>=0 and j<col:
+        while i >= 0 and j < col:
             if target == matrix[i][j]:
                 return True
             if target > matrix[i][j]:
-                j+=1
+                j += 1
             else:
-                i-=1
+                i -= 1
         return False
+
 
 if __name__ == "__main__":
     s = Solution()
