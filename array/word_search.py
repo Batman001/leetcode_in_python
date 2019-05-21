@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 
+
 class Solution(object):
+
     def exist(self, board, word):
         """
         :type board: List[List[str]]
@@ -31,6 +33,7 @@ class Solution(object):
         res = self.dfs(board, word, index + 1, row_index - 1, col_index, visited) or self.dfs(board, word, index + 1, row_index + 1, col_index,visited) or self.dfs(board, word, index + 1,row_index,col_index + 1, visited) or self.dfs(board, word, index + 1, row_index, col_index - 1, visited)
         visited[row_index][col_index] = False
         return res
+
 
 if __name__ == "__main__":
     s = Solution()
