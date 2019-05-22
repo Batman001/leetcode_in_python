@@ -6,7 +6,7 @@ class Solution(object):
         if len(nums) <= 1:
             return [nums]
         ans = []
-        for i,num in enumerate(nums):
+        for i, num in enumerate(nums):
             n = nums[:i] + nums[i+1:]
             print(nums[:i], "+", nums[i+1:], "=", n)
             for y in self.permute(n):
@@ -23,16 +23,16 @@ class Solution(object):
         self.dfs(nums, sub)
         return self.res
 
-    def dfs(self, Nums, subList):
-        if len(subList) == len(Nums):
-            self.res.append(subList[:])
+    def dfs(self, nums, sub_list):
+        if len(sub_list) == len(nums):
+            self.res.append(sub_list[:])
 
-        for m in Nums:
-            if m in subList:
+        for m in nums:
+            if m in sub_list:
                 continue
-            subList.append(m)
-            self.dfs(Nums, subList)
-            subList.remove(m)
+            sub_list.append(m)
+            self.dfs(nums, sub_list)
+            sub_list.remove(m)
 
 
 if __name__ == "__main__":
