@@ -51,35 +51,37 @@ print (len(result))
 def perm(array, begin, end):
     if begin == end:
         print(array)
-    for i in range(begin,end + 1):
-        swap(array,i,begin)
-        perm(array,begin+1,end)
-        swap(array,i,begin)
+    for i in range(begin, end + 1):
+        swap(array, i, begin)
+        perm(array, begin+1, end)
+        swap(array, i, begin)
 
-def swap(array,i,j):
-    array[i],array[j] = array[j],array[i]
+
+def swap(array, i, j):
+    array[i], array[j] = array[j], array[i]
 
 
 def main1():
-    array = [1,2,3,5,6,7]
-    perm(array,0,len(array)-1)
+    array = [1, 2, 3, 5, 6, 7]
+    perm(array, 0, len(array)-1)
 
 
-def merge(left,right):
+def merge(left, right):
     l_len = len(left)
     r_len = len(right)
-    i,j=0,0
+    i, j = 0, 0
     result = []
-    while i<l_len and j<r_len:
-        if left[i]<right[j]:
+    while i < l_len and j < r_len:
+        if left[i] < right[j]:
             result.append(left[i])
-            i+=1
+            i += 1
         else:
             result.append(right[j])
-            j+=1
+            j += 1
     result += left[i:]
     result += right[j:]
     return result
+
 
 def merge_sort(nums):
     if len(nums)==1:
@@ -87,12 +89,14 @@ def merge_sort(nums):
     mid = len(nums)/2
     left = merge_sort(nums[:mid])
     right = merge_sort(nums[mid:])
-    return merge(left,right)
+    return merge(left, right)
+
 
 def main2():
-    array = [1,5,3,9,6,7,19,26]
+    array = [1, 5, 3, 9, 6, 7, 19, 26]
     sort_array = merge_sort(array)
     print(sort_array)
+
 
 if __name__ == "__main__":
     main1()

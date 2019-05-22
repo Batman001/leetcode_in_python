@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 def wordPattern(pattern, str):
     """
     :type pattern: str
@@ -33,4 +34,6 @@ def wordPattern(pattern, str):
             else:
                 return False
 
-print(wordPattern("abba","dog cat cat fish"))
+
+if __name__ == "__main__":
+    print(wordPattern("abba","dog cat cat fish"))

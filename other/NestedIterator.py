@@ -7,6 +7,7 @@ class NestedIterator(object):
         :param nestedList:
         """
         self.flat = []
+
         def flatten(nested):
             for n in nested:
                 if n.isInteger():

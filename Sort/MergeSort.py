@@ -1,4 +1,5 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
+
 
 def merge(left, right):
     i, j = 0, 0
@@ -25,7 +26,10 @@ def merge_sort(lists):
     return merge(left, right)
 
 
-a = [5,1,2,4,3,8,9,3,4,7,10,8]
+if __name__ == "__main__":
+    a = [5, 1, 2, 4, 3, 8, 9, 3, 4, 7, 10, 8]
+    print(merge_sort(a))
+    print(type(merge_sort(a)))
 
-print(merge_sort(a))
-print(type(merge_sort(a)))
+
+

@@ -24,9 +24,9 @@ class Solution(object):
             max_num = max(max_num, nums[i])
             # min_num from left to right
             min_num = min(min_num, nums[length-1-i])
-            if(nums[i] < max_num):
+            if nums[i] < max_num:
                 end = i
-            if(nums[length-1-i] > min_num):
+            if nums[length-1-i] > min_num :
                 beg = length - 1 - i
 
         return end - beg + 1

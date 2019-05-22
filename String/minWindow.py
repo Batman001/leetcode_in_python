@@ -43,13 +43,12 @@ def find_index(start, s, t_count):
 from collections import Counter
 
 
-
 class Solution(object):
-    '''
-    LeetCode 76 hard Minimum Window SubString
-    '''
+
     def minWindow(self, s, t):
+
         """
+        LeetCode 76 hard Minimum Window SubString
         :type s: str
         :type t: str
         :rtype: str
@@ -86,7 +85,9 @@ class Solution(object):
             start += 1
         return start
 
-s = "ADOBACODEBANC"
-t = "ABC"
-solution = Solution()
-print(solution.minWindow(s,t))
+
+if __name__ == "__main__":
+    s = "ADOBACODEBANC"
+    t = "ABC"
+    solution = Solution()
+    print(solution.minWindow(s, t))

@@ -3,6 +3,7 @@ from graphviz import Digraph
 import random
 import uuid
 
+
 class TreeNode:
     def __init__(self, x=None, left=None, right=None):
         self.val = x
@@ -112,7 +113,6 @@ class TreeNode:
             self.left.leaves()
             self.right.leaves()
 
-
     # 利用GraphViz实现二叉树的可视化
     def print_tree(self, save_path='./Binary_Tree.gv', label=False):
 
@@ -144,6 +144,7 @@ class TreeNode:
             print_node(self, root_tag)
 
         self.dot.render(save_path)
+
 
 class InitTree:
     def __init__(self):
@@ -228,7 +229,6 @@ class CreateTree(object):
                 tree_list = create_tree_one_step_up(tree_list, level_order[i])
 
             return tree_list[0]
-
 
 
 if __name__ == "__main__":

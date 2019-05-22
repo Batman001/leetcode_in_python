@@ -24,7 +24,7 @@ class Solution(object):
         return self.res
 
     def dfs(self, Nums, subList):
-        if(len(subList) == len(Nums)):
+        if len(subList) == len(Nums):
             self.res.append(subList[:])
 
         for m in Nums:
@@ -36,7 +36,7 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    nums = [1,2,3]
+    nums = [1, 2, 3]
     s = Solution()
     result = s.permute_(nums)
     print(result)

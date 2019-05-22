@@ -37,7 +37,7 @@ class Solution(object):
 
 if __name__ == "__main__":
     s = Solution()
-    board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']]
+    board = [['A', 'B', 'C', 'E'],  ['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']]
     word = "ABCCED"
     res = s.exist(board, word)
     print(res)

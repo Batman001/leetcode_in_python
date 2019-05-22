@@ -3,7 +3,9 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution(object):
+
     def reverseBetween(self, head, m, n):
         """
         :type head: ListNode
@@ -22,7 +24,7 @@ class Solution(object):
 
         modify_list_tail = head
 
-        while (change_len > 0 and head != None):
+        while change_len > 0 and head != None:
             tmp = head.next
             head.next = new_head
             new_head = head
@@ -30,7 +32,7 @@ class Solution(object):
             change_len -= 1
 
         modify_list_tail.next = head
-        if (pre_head != None):
+        if pre_head != None:
             pre_head.next = new_head
         else:
             result = new_head

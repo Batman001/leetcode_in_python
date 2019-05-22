@@ -7,6 +7,7 @@ class Solution:
         result.append(father_subsets)
         for i in range(start, len(S)):
             self.dfs(i+1, S, result, father_subsets+[S[i]])
+
     def subsets(self, S):
         # none case
         if S is None:

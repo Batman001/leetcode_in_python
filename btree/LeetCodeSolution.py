@@ -2,6 +2,7 @@
 from btree import TreeNode
 from btree.TreeNode import CreateTree
 
+
 class LeetCodeSolution(object):
 
     def __init__(self, question_num, all_paths=[]):
@@ -41,7 +42,6 @@ class LeetCodeSolution(object):
         res = ["".join(item) for item in res]
         return sum([int(item) for item in res])
 
-
     def find_all_path(self, root):
         if root is None:
             return self.all_paths
@@ -65,7 +65,6 @@ if __name__ == "__main__":
     print(lc1.has_path_sum(tree, 30))
 
     print("=====================================")
-
 
     one_path = []
     lc2 = LeetCodeSolution(129)
