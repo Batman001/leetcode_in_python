@@ -1,7 +1,7 @@
 # -*- coding:utf-8  -*-
 class Solution(object):
 
-    def searchMatrix(self, matrix, target):
+    def search_matrix(self, matrix, target):
         """
         :type matrix: List[List[int]]
         :type target: int
@@ -25,7 +25,7 @@ class Solution(object):
 
         return target in target_row
 
-    def search_matrix(self, matrix, target):
+    def search_matrix_(self, matrix, target):
         if matrix == [] or matrix == [[]]:
             return False
         row = len(matrix)
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     s = Solution()
     matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50]]
     target = 30
-    print(s.searchMatrix(matrix, target))
+    print(s.search_matrix(matrix, target))
