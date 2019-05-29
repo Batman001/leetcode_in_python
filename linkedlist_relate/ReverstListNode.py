@@ -41,13 +41,16 @@ class Solution(object):
     def next_larger_nodes(self, head):
         """
         参考链接：https://blog.csdn.net/fuxuemingzhu/article/details/89048785
-        链表中的下一个更大节点
+        链表中的下一个更大节点（请注意是下一个更大节点 而不是全部节点中最大)
         示例1：
         输入：[2,1,5]
         输出：[5,5,0]
         示例2：
         输入：[2,7,4,3,5]
         输出：[7,0,5,5,0]
+        示例3：
+        输入：[1,7,5,1,9,2,5,1]
+        输出：[7,9,9,9,0,5,0,0]
         :param head: 头指针
         :return:返回列表
         """
@@ -71,7 +74,7 @@ if __name__ == "__main__":
     s = Solution()
     head = ListNode(2)
     head.next = ListNode(7)
-    head.next.next = ListNode(4)
+    head.next.next = ListNode(8)
     head.next.next.next = ListNode(3)
     head.next.next.next.next = ListNode(5)
     result = s.next_larger_nodes(head)
