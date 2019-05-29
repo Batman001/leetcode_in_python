@@ -14,7 +14,7 @@ class TreeNode:
     def pre_order(self):
         """ 前序递归遍历 """
         if self.val is not None:
-            print(self.val,end=" ")
+            print(self.val, end=" ")
         if self.left is not None:
             self.left.pre_order()
         if self.right is not None:
