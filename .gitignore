@@ -4,3 +4,6 @@
 */__pycache__/
 .gitignore
 *.gitignore
+array_relate/__init__.py
+string_relate/__init__.py
+*/__init__.py
