@@ -6,6 +6,7 @@ class ListNode(object):
 
 class Solution(object):
 
+    @staticmethod
     def reverse_between(self, head, m, n):
         """
         :type head: ListNode
@@ -38,6 +39,7 @@ class Solution(object):
             result = new_head
         return result
 
+    @staticmethod
     def next_larger_nodes(self, head):
         """
         参考链接：https://blog.csdn.net/fuxuemingzhu/article/details/89048785

@@ -45,7 +45,8 @@ from collections import Counter
 
 class Solution(object):
 
-    def minWindow(self, s, t):
+    @staticmethod
+    def min_window(self, s, t):
 
         """
         LeetCode 76 hard Minimum Window SubString
@@ -78,8 +79,9 @@ class Solution(object):
             right = self.find_index(right + 1, s, t_count)
         return result
 
+    @staticmethod
     def find_index(self, start, s, t_count):
-        while (start < len(s)):
+        while start < len(s):
             if s[start] in t_count:
                 return start
             start += 1
@@ -90,4 +92,4 @@ if __name__ == "__main__":
     s = "ADOBACODEBANC"
     t = "ABC"
     solution = Solution()
-    print(solution.minWindow(s, t))
+    print(solution.min_window(s, t))

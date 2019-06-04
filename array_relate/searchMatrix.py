@@ -1,6 +1,7 @@
 # -*- coding:utf-8  -*-
 class Solution(object):
 
+    @staticmethod
     def search_matrix(self, matrix, target):
         """
         :type matrix: List[List[int]]
@@ -25,6 +26,7 @@ class Solution(object):
 
         return target in target_row
 
+    @staticmethod
     def search_matrix_(self, matrix, target):
         if matrix == [] or matrix == [[]]:
             return False

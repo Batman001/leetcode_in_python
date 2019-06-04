@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 class Solution:
     # @param S, a list of integer
     # @return a list of lists of integer

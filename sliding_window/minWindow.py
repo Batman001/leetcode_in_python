@@ -44,7 +44,7 @@ class Solution:
                 else:
                     pass
 
-        if match_substr == []:
+        if match_substr is []:
             return ""
         else:
             for item in match_substr:
@@ -52,6 +52,7 @@ class Solution:
                     res = item
         return res
 
+    @staticmethod
     def match(self, s, t, left, right):
         """
         判断s[left:right+1] 是否包含子串t

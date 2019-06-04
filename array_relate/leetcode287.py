@@ -2,6 +2,8 @@
 
 
 class Solution:
+
+    @staticmethod
     def find_duplicate(self, nums):
         """
         leetcode 287 寻找数组中重复元素 只有一个元素重复
@@ -28,6 +30,7 @@ class Solution:
                 right -= 1
         return target
 
+    @staticmethod
     def find_duplicate_(self, nums):
         """
         leetcode 287 寻找数组中重复元素 只有一个元素重复

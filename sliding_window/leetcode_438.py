@@ -4,6 +4,7 @@ from collections import Counter
 
 class Solution:
 
+    @staticmethod
     def find_anagrams(self, s, p):
         """
         给定一个字符串 s 和一个非空字符串 p，找到 s 中所有是 p 的字母异位词的子串，返回这些子串的起始索引。

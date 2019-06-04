@@ -4,7 +4,8 @@ import collections
 
 class Solution:
 
-    def minWindow(self, s, t):
+    @staticmethod
+    def min_window(self, s, t):
 
         count = collections.Counter(t)  # 统计字符串 t 中字符出现的次数
         miss = len(t)  # miss 负责记录 当前窗口是否满足条件
@@ -22,6 +23,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    solu = Solution()
+    solution = Solution()
     s, t = 'ADOBECODEBANC', 'ABC'
-    print(solu.minWindow(s, t))
+    print(solution.min_window(s, t))

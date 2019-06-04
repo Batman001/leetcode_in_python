@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
-def minSubArrayLen(s, nums):
+
+
+def min_sub_array_len(s, nums):
     """
     :type s: int
     :type nums: List[int]
@@ -18,7 +20,7 @@ def minSubArrayLen(s, nums):
 if __name__ == "__main__":
     s = 4
     nums = [1, 4, 4]
-    print(minSubArrayLen(s, nums))
+    print(min_sub_array_len(s, nums))
 
 
 

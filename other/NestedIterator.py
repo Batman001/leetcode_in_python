@@ -23,11 +23,13 @@ class NestedIterator(object):
         """
         return self.flat.pop()
 
+    @staticmethod
     def hasNext(self):
         """
         :return: bool
         """
         return bool(self.flat)
+
 
 if __name__ == "__main__":
     n = NestedIterator([1,2,[2,3,[4,7,8]]])

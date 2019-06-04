@@ -43,6 +43,7 @@ class Solution:
 
         return found_substr if found_substr is not None else ''
 
+    @staticmethod
     def _is_sub(self, parent, child):
         """
         判断parent 字典中 是否全部包含child 字典 的全部元素

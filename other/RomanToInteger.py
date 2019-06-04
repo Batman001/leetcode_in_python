@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+
+
 def solution(s):
     result = 0
     i = 0

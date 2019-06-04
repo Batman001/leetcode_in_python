@@ -3,6 +3,7 @@
 
 class Solution(object):
 
+    @staticmethod
     def find_unsorted_subarray(self, nums):
         """
         581. 最短无序连续子数组 https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/

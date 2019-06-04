@@ -1,35 +1,35 @@
 # -*- coding:utf-8 -*-
 
 
-def search_array(sortArray, target, begin, end):
+def search_array(sort_array, target, begin, end):
     """二分查找递归实现 """
     if begin > end:
         return False
     mid = (begin+end)/2
-    if target == sortArray[mid]:
+    if target == sort_array[mid]:
         return True
-    elif target < sortArray[mid]:
-        return search_array(sortArray, target, begin, mid - 1)
+    elif target < sort_array[mid]:
+        return search_array(sort_array, target, begin, mid - 1)
     else:
-        return search_array(sortArray, target, mid+1, end)
+        return search_array(sort_array, target, mid+1, end)
 
 
-def search_array_(sortArray, target):
+def search_array_(sort_array, target):
     """二分查找递归实现 """
     begin = 0
-    end = len(sortArray) - 1
-    while(begin <= end):
+    end = len(sort_array) - 1
+    while begin <= end:
         mid = (begin + end)/2
-        if target == sortArray[mid]:
+        if target == sort_array[mid]:
             return True
-        elif target > sortArray[mid]:
-            begin  = mid +1
+        elif target > sort_array[mid]:
+            begin = mid + 1
         else:
-            end = mid -1
+            end = mid - 1
     return False
 
 
-def searchInsert(sortnums, target):
+def search_insert(sortnums, target):
     """
     给定一个排序数组nums(无重复元素)与目标值target，
     如果target在nums里出现，则返回target所在下标，
@@ -54,7 +54,7 @@ def searchInsert(sortnums, target):
     return index
 
 
-def searchRange(nums, target):
+def search_range(nums, target):
     """
     给定一个排序数组nums(nums中有重复元素)与目标值target，
     如果target在nums里出现，则返回target所在区间的左右端点下标，[左端点, 右端点]，
@@ -109,9 +109,9 @@ if __name__ == "__main__":
     #print(u"递归实现二分查找结果如下", result)
     #print(u"非递归实现二分查找", result_)
 
-    print(searchInsert(a, 890))
+    print(search_insert(a, 890))
 
     sort_dup_list_1 = [1,2,4,4,4,4,5,89,90]
     sort_dup_list_2 = [2,2,2,2,4]
     sort_dup_list_3 = [1,2,3,3,3,3,3]
-    print(searchRange(sort_dup_list_3, 3))
+    print(search_range(sort_dup_list_3, 3))

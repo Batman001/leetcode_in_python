@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 class Solution:
 
+    @staticmethod
     def min_subarray_len(self, s, nums):
         """
         给定一个含有 n 个正整数的数组和一个正整数 s ，

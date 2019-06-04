@@ -4,6 +4,7 @@ from collections import deque
 
 class Solution(object):
 
+    @staticmethod
     def max_sliding_window(self, nums, k):
         """
         时间复杂度为 O(k*n-k)
@@ -29,6 +30,7 @@ class Solution(object):
             right = left + 1
         return result
 
+    @staticmethod
     def max_sliding_window_(self, nums, k):
         """
         wrong code 如果最大值出现中间 没有办法处理
@@ -52,6 +54,7 @@ class Solution(object):
             result.append(cur_max_num)
         return result
 
+    @staticmethod
     def max_sliding_window1(self, nums, k):
         """
         使用辅助队列数据结构实现

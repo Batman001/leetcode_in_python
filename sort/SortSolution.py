@@ -11,6 +11,7 @@ class Solution(object):
         def print_interval(self):
             print([self.start, self.end])
 
+    @staticmethod
     def merge(self, intervals):
         '''
         LeetCode 56 Merge Intervals
@@ -28,6 +29,7 @@ class Solution(object):
                 merged[-1].end = max(merged[-1].end, interval.end)
         return merged
 
+    @staticmethod
     def insert(self, intervals, newInterval):
         '''
         LeetCode 57 Insert Interval

@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 class Solution(object):
-    def nextGreaterElement(self, nums1, nums2):
+
+    @staticmethod
+    def next_greater_element(self, nums1, nums2):
         """
         :type nums1: List[int]
         :type nums2: List[int]
@@ -12,6 +14,7 @@ class Solution(object):
             res[i] = next_larger_num
         return res
 
+    @staticmethod
     def next_greate_ele_(self, cur_num, nums):
         target = -1
         cur_index = nums.index(cur_num)
@@ -26,6 +29,6 @@ if __name__ == "__main__":
     nums1 = [4, 1, 2]
     nums2 = [1, 2, 3, 4]
     s = Solution()
-    res = s.nextGreaterElement(nums1, nums2)
+    res = s.next_greater_element(nums1, nums2)
     print(res)
 

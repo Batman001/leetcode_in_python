@@ -46,6 +46,7 @@ class Solution:
                 break
         return head
 
+    @staticmethod
     def reverse_k(self, head, k):
         """
         对以head为表头的链表进行翻转k个节点 返回翻转后表头
@@ -69,6 +70,7 @@ class Solution:
         head.next = reverse_tail
         return pre
 
+    @staticmethod
     def print_list_node(self, head):
         """
         打印链表的方法

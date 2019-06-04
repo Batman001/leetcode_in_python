@@ -20,7 +20,7 @@ class Solution(object):
                     return True
         return False
 
-    def dfs(self,board, word, index, row_index, col_index, visited):
+    def dfs(self, board, word, index, row_index, col_index, visited):
         if index == len(word):
             return True
         if row_index < 0 or col_index < 0 or row_index >= len(board) or col_index >= len(board[0]):
