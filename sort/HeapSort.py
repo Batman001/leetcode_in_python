@@ -23,8 +23,10 @@ def heap_sort(heap):
     result = []
     for i in range(len(heap)):
         heap_size = len(heap)
-        heap[0],heap[heap_size-1] = heap[heap_size-1],heap[0]
+        heap[0], heap[heap_size-1] = heap[heap_size-1], heap[0]
+        # 使用result 接收下沉到堆尾的大元素
         result.append(heap.pop())
+        # 继续调整去除heap中大元素的其他剩余元素
         max_modify(heap, 0)
     return result
 
@@ -33,7 +35,7 @@ def max_modify(heap, i):
     """
     max_modify方法动态调整堆，使得堆始终保持根节点的值大于左右孩子节点值
     结束条件： 如果largest等于i说明i是最大元素 或者 largest超出heap范围 说明不存在比i节点大的孩子节点
-    调整完当前根节点之后，递归调用maxify方法
+    调整完当前根节点之后，递归调用max_modify方法
     直到最小值
     :param heap:
     :param i:
@@ -85,7 +87,9 @@ def main():
     （3) 整体时间复杂度为o(n + nlogn)
     :return: 
     """
-    heap = [1, 3, 78, 34, 10, 9, 2, 5, -8, 9, 34, 76, 89, 12]
+    # heap = [1, 3, 78, 34, 10, 9, 2, 5, -8, 9, 34, 76, 89, 12]
+
+    heap = [1, 3, 78, 34, 10, 9, 2, 5, -8]
     build_heap(heap)
     heap = heap_sort(heap)
     # 此时排好序的列表为从大到小排列
@@ -131,4 +135,5 @@ def min_window(s, t):
     if min_size < len(s) + 1:
         return s[min_start:min_start + min_size]
     else:
-        return ""
+        return ''
+

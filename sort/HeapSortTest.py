@@ -10,8 +10,8 @@ def build_heap(array):
     :param array:
     :return:
     """
-    length = len(array);
-    for i in range(int(length/2) - 1, -1,-1):
+    length = len(array)
+    for i in range(int(length/2) - 1, -1, -1):
         minify(array, i)
     return array
 
@@ -38,7 +38,7 @@ def minify(array, i):
     left = left_index(i)
     right = right_index(i)
     length = len(array)
-    if left < length and array[left]<array[i]:
+    if left < length and array[left] < array[i]:
         smallest = left
     else:
         smallest = i
@@ -52,7 +52,7 @@ def minify(array, i):
 
 
 def main():
-    heap = [3,9,5,20,34,-4,8,89]
+    heap = [3, 9, 5, 20, 34, -4, 8, 89]
     heap = build_heap(heap)
     print(heap)
 

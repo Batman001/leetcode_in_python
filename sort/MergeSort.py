@@ -20,7 +20,7 @@ def merge_sort(lists):
     # 归并排序
     if len(lists) <= 1:
         return lists
-    num = len(lists) / 2
+    num = len(lists) // 2
     left = merge_sort(lists[:num])
     right = merge_sort(lists[num:])
     return merge(left, right)
@@ -29,7 +29,6 @@ def merge_sort(lists):
 if __name__ == "__main__":
     a = [5, 1, 2, 4, 3, 8, 9, 3, 4, 7, 10, 8]
     print(merge_sort(a))
-    print(type(merge_sort(a)))
 
 
 
