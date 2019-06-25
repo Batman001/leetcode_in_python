@@ -29,7 +29,7 @@ def search_array_(sort_array, target):
     return False
 
 
-def search_insert(sortnums, target):
+def search_insert(sort_nums, target):
     """
     给定一个排序数组nums(无重复元素)与目标值target，
     如果target在nums里出现，则返回target所在下标，
@@ -37,18 +37,18 @@ def search_insert(sortnums, target):
     使得将target插入数组nums后，数组仍有序
     """
     begin = 0
-    end = len(sortnums)-1
+    end = len(sort_nums) - 1
     index = -1
-    while(index == -1):
+    while index == -1:
         mid = (begin+end)/2
-        if target == sortnums[mid]:
+        if target == sort_nums[mid]:
             index = mid
-        elif target > sortnums[mid]:
-            if mid == len(sortnums)-1 or target < sortnums[mid + 1]:
-                index = mid +1
+        elif target > sort_nums[mid]:
+            if mid == len(sort_nums)-1 or target < sort_nums[mid + 1]:
+                index = mid + 1
             begin = mid + 1
         else:
-            if target > sortnums[mid-1] or mid == 0:
+            if target > sort_nums[mid - 1] or mid == 0:
                 index = mid
             end = mid - 1
     return index
@@ -61,31 +61,31 @@ def search_range(nums, target):
     如果target在nums里未出现，则返回[-1, -1]
     """
 
-    def left_bound(nums, target):
+    def left_bound(nums_, target_):
         begin = 0
-        end = len(nums)-1
+        end = len(nums_) - 1
         while begin <= end:
             mid = int((begin+end)/2)
-            if target == nums[mid]:
-                if mid == 0 or nums[mid-1] < target:
+            if target_ == nums_[mid]:
+                if mid == 0 or nums_[mid - 1] < target_:
                     return mid
                 end = mid - 1
-            elif target > nums[mid]:
+            elif target_ > nums_[mid]:
                 begin = mid + 1
             else:
                 end = mid - 1
         return -1
 
-    def right_bound(nums, target):
+    def right_bound(nums_, target_):
         begin = 0
-        end = len(nums) - 1
+        end = len(nums_) - 1
         while begin <= end:
             mid = int((begin+end)/2)
-            if target == nums[mid]:
-                if mid == len(nums)-1 or target < nums[mid+1]:
+            if target_ == nums_[mid]:
+                if mid == len(nums_)-1 or target_ < nums_[mid + 1]:
                     return mid
                 begin = mid + 1
-            elif target > nums[mid]:
+            elif target_ > nums_[mid]:
                 begin = mid + 1
             else:
                 end = mid - 1
@@ -104,14 +104,14 @@ if __name__ == "__main__":
     result_ = []
 
     for item in b:
-        result.append(search_array(a,item,0,len(a)))
+        result.append(search_array(a, item, 0, len(a)))
         result_.append(search_array_(a, item))
-    #print(u"递归实现二分查找结果如下", result)
-    #print(u"非递归实现二分查找", result_)
+    # print(u"递归实现二分查找结果如下", result)
+    # print(u"非递归实现二分查找", result_)
 
     print(search_insert(a, 890))
 
-    sort_dup_list_1 = [1,2,4,4,4,4,5,89,90]
-    sort_dup_list_2 = [2,2,2,2,4]
-    sort_dup_list_3 = [1,2,3,3,3,3,3]
+    sort_dup_list_1 = [1, 2, 4, 4, 4, 4, 5, 89, 90]
+    sort_dup_list_2 = [2, 2, 2, 2, 4]
+    sort_dup_list_3 = [1, 2, 3, 3, 3, 3, 3]
     print(search_range(sort_dup_list_3, 3))
