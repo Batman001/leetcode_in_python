@@ -17,19 +17,19 @@ class LeetCodeSolution(object):
         print("当前leetcode题目号码是:" + str(self.question_num))
         print("执行的结果为:")
 
-    def has_path_sum(self, root, sum):
+    def has_path_sum(self, root, sum_data):
         """
         路径总和 给定一个二叉树和一个目标和,判断该树中是否存在根节点到叶子节点的路径,这条路径上所有节点值相加等于目标和
         :param root: TreeNode
-        :param sum: int
+        :param sum_data: int 根节点到叶子节点路径的和
         :return: boolean
         """
         if root is None:
             return False
-        sum -= root.val
-        if sum == 0 and root.left is None and root.right is None:
+        sum_data -= root.val
+        if sum_data == 0 and root.left is None and root.right is None:
             return True
-        return self.has_path_sum(root.left, sum) or self.has_path_sum(root.right, sum)
+        return self.has_path_sum(root.left, sum_data) or self.has_path_sum(root.right, sum_data)
 
     def sum_numbers(self, root):
         """

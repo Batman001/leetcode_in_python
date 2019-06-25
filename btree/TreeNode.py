@@ -20,6 +20,24 @@ class TreeNode:
         if self.right is not None:
             self.right.pre_order()
 
+    def pre_order_(self):
+        """前序非递归遍历 使用栈结构实现"""
+        res_ = []
+        if self is None:
+            return res_
+        stack = [self]
+
+        while stack:
+            cur_node = stack.pop()
+            # print(cur_node.val, end=" ")
+            res_.append(cur_node.val)
+            if cur_node.right is not None:
+                stack.append(cur_node.right)
+
+            if cur_node.left is not None:
+                stack.append(cur_node.left)
+        return res_
+
     def in_order(self):
         """ 中序递归遍历 """
         if self.left is not None:
@@ -28,6 +46,28 @@ class TreeNode:
             print(self.val, end=" ")
         if self.right is not None:
             self.right.in_order()
+
+    def in_order_(self):
+        """
+        中序非递归遍历
+        :return: 遍历的结果使用列表进行存储
+        """
+        res_ = []
+        if self is None:
+            return res
+        # 使用外部栈结构对二叉树进行非递归中序遍历
+        stack = []
+        root = self
+        while stack or root is not None:
+            while root is not None:
+                stack.append(root)
+                root = root.left
+
+            if stack:
+                cur_node = stack.pop()
+                res_.append(cur_node.val)
+                root = cur_node.right
+        return res_
 
     def post_order(self):
         """ 后序递归遍历 """
@@ -38,11 +78,34 @@ class TreeNode:
         if self.val is not None:
             print(self.val, end=" ")
 
+    def post_order_(self):
+        """
+        后序非递归遍历
+        :return: 后序非递归遍历的结果使用列表进行存储
+        :solution 借助前序非递归遍历 使用 根 -> 右节点 -> 左节点 然后逆序输出非递归遍历结果
+        """
+        res_ = []
+        if self is None:
+            return res
+        stack = [self]
+        stack_reverse = []
+        while stack:
+            cur_node = stack.pop()
+            stack_reverse.append(cur_node)
+
+            if cur_node.left is not None:
+                stack.append(cur_node.left)
+
+            if cur_node.right is not None:
+                stack.append(cur_node.right)
+        while stack_reverse:
+            res_.append(stack_reverse.pop().val)
+        return res_
+
     def level_order(self):
         """ 层次非递归遍历(借助队列实现) """
-        result = []
-        result.append(self)
-        while result != []:
+        result = [self]
+        while result:
             current_node = result[0]
             result.remove(current_node)
             print(current_node.val, end=" ")
@@ -53,12 +116,12 @@ class TreeNode:
 
     def level_order_(self):
         #返回某个节点的左子树
-        def left_of_node(node):
-            return node.left if node.left is not None else None
+        def left_of_node(cur_node):
+            return cur_node.left if cur_node.left is not None else None
 
         #返回某个节点的右子树
-        def right_of_node(node):
-            return node.right if node.right is not None else None
+        def right_of_node(cur_node):
+            return cur_node.right if cur_node.right is not None else None
 
         #层次遍历列表
         levels_list = []
@@ -150,10 +213,10 @@ class InitTree:
     def __init__(self):
         pass
 
-    def init_tree(self):
+    @staticmethod
+    def init_tree():
         # 构造二叉树, BOTTOM-UP METHOD
         right_tree = TreeNode(6)
-        a = TreeNode
 
         right_tree.left = TreeNode(2)
         right_tree.right = TreeNode(4)
@@ -162,57 +225,57 @@ class InitTree:
         left_tree.left = TreeNode(1)
         left_tree.right = TreeNode(3)
 
-        tree = TreeNode(11)
-        tree.left = left_tree
-        tree.right = right_tree
+        con_tree = TreeNode(11)
+        con_tree.left = left_tree
+        con_tree.right = right_tree
 
         left_tree = TreeNode(7)
         left_tree.left = TreeNode(3)
         left_tree.right = TreeNode(4)
 
-        right_tree = tree  # 增加新的变量
-        tree = TreeNode(18)
-        tree.left = left_tree
-        tree.right = right_tree
-        return tree
+        right_tree = con_tree  # 增加新的变量
+        con_tree = TreeNode(18)
+        con_tree.left = left_tree
+        con_tree.right = right_tree
+        return con_tree
 
 
 class CreateTree(object):
 
-    def __init__(self, array):
-        self.array = array
+    def __init__(self, arr):
+        self.array = arr
 
     """ 利用列表构造二叉树 列表中至少有一个元素 """
     def create_tree_by_list(self):
         i = 1
         # 将原数组拆成层次遍历的数组，每一项都储存这一层所有的节点的数据
         level_order = []
-        sum = 1
+        sum_data = 1
 
-        while sum < len(self.array):
+        while sum_data < len(self.array):
             level_order.append(self.array[i-1:2*i-1])
             i *= 2
-            sum += i
+            sum_data += i
         level_order.append(self.array[i-1:])
         print(level_order)
 
-        def create_tree_one_step_up(tree_list, forward_level):
+        def create_tree_one_step_up(tree_lists, forward_level):
             """
             按步骤进行树的创建
-            :param tree_list: 这一层所有节点组成的列表
+            :param tree_lists: 这一层所有节点组成的列表
             :param forward_level: 上一层节点的数据组成的列表
             :return:
             """
             new_tree_list = []
-            i = 0
+            index_ = 0
             for elem in forward_level:
                 root = TreeNode(elem)
-                if 2 * i < len(tree_list):
-                    root.left = tree_list[i*2]
-                if 2 * i + 1 < len(tree_list):
-                    root.right = tree_list[i*2+1]
+                if 2 * index_ < len(tree_lists):
+                    root.left = tree_lists[index_ * 2]
+                if 2 * index_ + 1 < len(tree_lists):
+                    root.right = tree_lists[index_ * 2 + 1]
                 new_tree_list.append(root)
-                i += 1
+                index_ += 1
             return new_tree_list
 
         # 如果只有一个节点
@@ -252,6 +315,35 @@ if __name__ == "__main__":
     array1 = '49051'
     tree_ = CreateTree(array1).create_tree_by_list()
     tree_.print_tree(save_path='/Users/sunchao/Desktop/tree_.gv', label=True)
+
+    print("二叉树前序递归遍历:")
+    tree.pre_order()
+    print()
+
+    print("二叉树前序非递归遍历:")
+    res = tree.pre_order_()
+    print(res)
+    print()
+
+    print("二叉树中序递归遍历:")
+    tree.in_order()
+    print()
+
+    print("二叉树中序非递归遍历:")
+    res = tree.in_order_()
+    print(res)
+    print()
+
+    print("二叉树后序递归遍历:")
+    tree.post_order()
+    print()
+
+    print("二叉树后序非递归遍历:")
+    res = tree.post_order_()
+    print(res)
+    print()
+
+
 
 
 
