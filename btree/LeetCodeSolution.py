@@ -57,6 +57,75 @@ class LeetCodeSolution(object):
         one_path.pop()
         return self.all_paths
 
+    def lowest_common_ancestor(self, root, p, q):
+        """
+        leetcode 二叉树的最近公共祖先(递归实现)
+        :param root 二叉树的根节点
+        :param p: 二叉树某一节点p
+        :param q: 二叉树某一节点q
+        :return: TreeNode 最近祖先节点
+        """
+        if root is None or root == p or root == q:
+            return root
+
+        left = self.lowest_common_ancestor(root.left, p, q)
+
+        right = self.lowest_common_ancestor(root.right, p, q)
+
+        if left is not None and right is not None:
+            return root
+
+        return left if right is None else right
+
+    def get_path(self, root, node, path):
+        """
+        得到从root根节点到 node 节点的路径信息 不断更新path中列表 path中存储的即为路径信息
+        :param root 二叉树根节点
+        :param node: 二叉树某一个节点
+        :param path: 路径信息存储列表
+        :return:
+        """
+        if not root or not node:
+            return False
+        if root == node:
+            return True
+
+        path.append(root)
+
+        found = False
+
+        if root.left is not None:
+            found = self.get_path(root.left, node, path)
+
+        if not found and root.right is not None:
+            found = self.get_path(root.right, node, path)
+
+        if not found:
+            path.pop()
+        return found
+
+    def lowest_common_ancestor_(self, root, p, q):
+        """
+        leetcode236 二叉树的最近公共祖先(非递归实现)
+        :param root: 根节点
+        :param p: 二叉树某一节点p
+        :param q: 二叉树某一节点q
+        :return: TreeNode 最近祖先节点
+        """
+        path = []
+        self.get_path(root, p, path)
+        path.append(p)
+
+        path_ = []
+        self.get_path(root, q, path_)
+        path_.append(q)
+
+        # 然后根据路径1和路径2, 从后向前寻找出现的最先公共节点
+        for i in range(len(path)-1, -1, -1):
+            if path[i] in path_:
+                return path[i]
+        return None
+
 
 if __name__ == "__main__":
     tree = TreeNode.InitTree().init_tree()
@@ -71,4 +140,14 @@ if __name__ == "__main__":
     lc2.execute()
     tree_ = CreateTree('49051').create_tree_by_list()
     print(lc2.sum_numbers(tree_))
+
+    print("=====================================")
+    lc3 = LeetCodeSolution(236)
+    lc3.execute()
+
+    ancestor = lc3.lowest_common_ancestor(tree, tree.right.left.left, tree.right.right)
+    ancestor_ = lc3.lowest_common_ancestor_(tree, tree.right.left.left, tree.right.right)
+    print(ancestor.val)
+    print(ancestor_.val)
+
 
