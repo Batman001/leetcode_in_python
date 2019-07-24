@@ -151,8 +151,8 @@ class TreeNode:
     def level_order_list(self):
         """
         层次遍历非递归实现 并且返回按照层次输出层次遍历的结果lists
-        leetcode102. 二叉树的层次遍历
-        :return:
+        leetcode 102. 二叉树的层次遍历
+        :return: 层次遍历的列表表示
         """
         result = []
         if not self:
@@ -169,6 +169,27 @@ class TreeNode:
                 if node.right:
                     next_level_nodes.append(node.right)
             level_nodes = next_level_nodes
+        return result
+
+    def level_order_list_reverse(self):
+        """
+        层次遍历 从叶子节点开始直到根节点
+        leetcode 107. 二叉树的层次遍历II
+        :return: 层次遍历的列表表示
+        """
+        result = []
+        stack = [self]
+        while stack:
+            next_level_nodes = []
+            res_each = []
+            for node in stack:
+                res_each.append(node.val)
+                if node.left:
+                    next_level_nodes.append(node.left)
+                if node.right:
+                    next_level_nodes.append(node.right)
+            stack = next_level_nodes
+            result.insert(0, res_each)
         return result
 
     def height(self):
@@ -370,6 +391,9 @@ if __name__ == "__main__":
     print(tree.level_order_list())
     print(tree.level_order())
     print(tree.level_order_())
+
+    print("二叉树层次遍历从叶子节点层开始到根节点：")
+    print(tree.level_order_list_reverse())
 
 
 
