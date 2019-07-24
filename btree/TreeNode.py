@@ -148,6 +148,29 @@ class TreeNode:
                     levels_list[i][index] = levels_list[i][index].val
         return levels_list
 
+    def level_order_list(self):
+        """
+        层次遍历非递归实现 并且返回按照层次输出层次遍历的结果lists
+        leetcode102. 二叉树的层次遍历
+        :return:
+        """
+        result = []
+        if not self:
+            return result
+        level_nodes = [self]
+
+        while level_nodes:
+            next_level_nodes = []
+            result.append([])
+            for node in level_nodes:
+                result[-1].append(node.val)
+                if node.left:
+                    next_level_nodes.append(node.left)
+                if node.right:
+                    next_level_nodes.append(node.right)
+            level_nodes = next_level_nodes
+        return result
+
     def height(self):
         """ 返回二叉树的高度 """
         '''树的高度为0,只有root节点的高度为1'''
@@ -342,6 +365,12 @@ if __name__ == "__main__":
     res = tree.post_order_()
     print(res)
     print()
+
+    print("二叉树层次遍历的:")
+    print(tree.level_order_list())
+    print(tree.level_order())
+    print(tree.level_order_())
+
 
 
 
