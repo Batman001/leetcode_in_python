@@ -179,6 +179,24 @@ class LeetCodeSolution(object):
             queue = next_queue
         return True
 
+    def prune_tree(self, root):
+        """
+        leetcode 814 二叉树的剪枝 (使用递归实现）
+        给定二叉树根结点 root，此外树的每个结点的值要么是 0，要么是 1。
+        返回移除了所有不包含 1 的子树的原二叉树。
+        :param root: 待剪枝的二叉树的根节点
+        :return: 剪枝后的二叉树根节点
+        """
+        if root is None:
+            return None
+        root.left = self.prune_tree(root.left)
+        root.right = self.prune_tree(root.right)
+
+        if root.left is None and root.right is None and root.val == 0:
+            return None
+
+        return root
+
 
 def merge_tree(t1, t2):
     """
