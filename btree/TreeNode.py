@@ -115,11 +115,11 @@ class TreeNode:
                 result.append(current_node.right)
 
     def level_order_(self):
-        #返回某个节点的左子树
+        # 返回某个节点的左子树
         def left_of_node(cur_node):
             return cur_node.left if cur_node.left is not None else None
 
-        #返回某个节点的右子树
+        # 返回某个节点的右子树
         def right_of_node(cur_node):
             return cur_node.right if cur_node.right is not None else None
 
