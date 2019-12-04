@@ -398,7 +398,7 @@ if __name__ == "__main__":
     tree_ = CreateTree(array1).create_tree_by_list()
     tree_.print_tree(save_path='/Users/sunchao/Desktop/tree_.gv', label=True)
 
-    array_string = " [3,5,1,6,2,0,8,null,null,7,4]"
+    array_string = " [3, 5, 1,6, 2,0, 8,null,null,7,4]"
     tree_by_string = CreateTree.create_tree_by_string(array_string)
     tree_by_string.print_tree(save_path='/Users/sunchao/Desktop/tree_by_string.gv', label=True)
 

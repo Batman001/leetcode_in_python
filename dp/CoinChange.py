@@ -4,7 +4,7 @@
 class Solution:
 
     @staticmethod
-    def coin_change(self, coins, amount):
+    def coin_change(coins, amount):
         """
         动态规划
         已知不同面值的钞票，求如何用最少数量的钞票组成某个金额，求可以使用的最少钞票数量。如果任意数量的已知面值钞票都无法组成该金额,则返回-1。
@@ -14,12 +14,12 @@ class Solution:
         """
         if amount == 0:
             return 0
-        dp = [-1 for i in range(amount + 1)]
+        dp = [-1 for _ in range(amount + 1)]
         dp[0] = 0
         for i in range(1, amount + 1):
             for j in range(len(coins)):
                 if (i - coins[j] >= 0) and dp[i - coins[j]] != -1:
-                    if (dp[i] == -1 or dp[i] > dp[i - coins[j]] + 1):
+                    if dp[i] == -1 or dp[i] > dp[i - coins[j]] + 1:
                         dp[i] = dp[i - coins[j]] + 1
         '''
         for i in range(len(dp)):

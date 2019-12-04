@@ -59,7 +59,7 @@ class Solution:
         return sum(max(prices[i] - prices[i-1], 0) for i in range(1, len(prices)))
 
     @staticmethod
-    def max_profit_3(self, prices):
+    def max_profit_3(prices):
         """
         leetcode 123买卖股票的最佳时机 III
         给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
