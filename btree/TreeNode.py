@@ -123,7 +123,7 @@ class TreeNode:
         def right_of_node(cur_node):
             return cur_node.right if cur_node.right is not None else None
 
-        #层次遍历列表
+        # 层次遍历列表
         levels_list = []
         # 是否添加根节点中的数据
         if self.val is not None:
@@ -286,8 +286,46 @@ class InitTree:
 
 class CreateTree(object):
 
-    def __init__(self, arr):
+    def __init__(self, arr=None):
         self.array = arr
+
+    @staticmethod
+    def create_tree_by_string(string):
+        """
+        通过字符串创建一个二叉树
+        :param string:  pattern "[1,2,3,null,null,5,6,null,null,7]"
+        :return: 返回重建后的二叉树
+        """
+        string = string.strip()[1:-1]
+        if len(string) == 0:
+            return None
+        parts = string.split(",")
+        item = int(parts[0].strip())
+        root = TreeNode(item)
+
+        queue = [root]
+        index = 1
+
+        while queue:
+            cur_node = queue.pop(0)
+            if index == len(parts):
+                break
+
+            item = parts[index].strip()
+            index += 1
+            if item != "null":
+                cur_node.left = TreeNode(int(item))
+                queue.append(cur_node.left)
+
+            if index == len(parts):
+                break
+
+            item = parts[index].strip()
+            index += 1
+            if item != "null":
+                cur_node.right = TreeNode(int(item))
+                queue.append(cur_node.right)
+        return root
 
     """ 利用列表构造二叉树 列表中至少有一个元素 """
     def create_tree_by_list(self):
@@ -359,6 +397,10 @@ if __name__ == "__main__":
     array1 = '49051'
     tree_ = CreateTree(array1).create_tree_by_list()
     tree_.print_tree(save_path='/Users/sunchao/Desktop/tree_.gv', label=True)
+
+    array_string = " [3,5,1,6,2,0,8,null,null,7,4]"
+    tree_by_string = CreateTree.create_tree_by_string(array_string)
+    tree_by_string.print_tree(save_path='/Users/sunchao/Desktop/tree_by_string.gv', label=True)
 
     print("二叉树前序递归遍历:")
     tree.pre_order()
