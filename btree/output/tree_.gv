@@ -1,0 +1,12 @@
+// Binary Tree
+digraph {
+	"07376fa8-1a20-11ea-9cab-4074e04adad9" [label=4 color=pink style=filled]
+	"07376fa9-1a20-11ea-a38c-4074e04adad9" [label=9 color=orange style=filled]
+	"07376fa8-1a20-11ea-9cab-4074e04adad9" -> "07376fa9-1a20-11ea-a38c-4074e04adad9" [label=L]
+	"07376faa-1a20-11ea-9935-4074e04adad9" [label=5 color=orange style=filled]
+	"07376fa9-1a20-11ea-a38c-4074e04adad9" -> "07376faa-1a20-11ea-9935-4074e04adad9" [label=L]
+	"07376fab-1a20-11ea-befe-4074e04adad9" [label=1 color=orange style=filled]
+	"07376fa9-1a20-11ea-a38c-4074e04adad9" -> "07376fab-1a20-11ea-befe-4074e04adad9" [label=R]
+	"07376fac-1a20-11ea-8b40-4074e04adad9" [label=0 color=orange style=filled]
+	"07376fa8-1a20-11ea-9cab-4074e04adad9" -> "07376fac-1a20-11ea-8b40-4074e04adad9" [label=R]
+}

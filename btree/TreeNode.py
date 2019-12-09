@@ -2,6 +2,8 @@
 from graphviz import Digraph
 import random
 import uuid
+import sys
+import os
 
 
 class TreeNode:
@@ -377,6 +379,7 @@ class CreateTree(object):
 
 
 if __name__ == "__main__":
+    os.chdir("./")
     tree = InitTree().init_tree()
     print("层序遍历为:")
     print(tree.level_order())
@@ -391,16 +394,16 @@ if __name__ == "__main__":
 
     print("二叉树的高度为:" + str(tree.height()))
 
-    tree.print_tree(save_path='/Users/sunchao/Desktop/tree.gv', label=True)
+    tree.print_tree(save_path='./output/tree.gv', label=True)
 
     array = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     array1 = '49051'
     tree_ = CreateTree(array1).create_tree_by_list()
-    tree_.print_tree(save_path='/Users/sunchao/Desktop/tree_.gv', label=True)
+    tree_.print_tree(save_path='./output/tree_.gv', label=True)
 
     array_string = " [3, 5, 1,6, 2,0, 8,null,null,7,4]"
     tree_by_string = CreateTree.create_tree_by_string(array_string)
-    tree_by_string.print_tree(save_path='/Users/sunchao/Desktop/tree_by_string.gv', label=True)
+    tree_by_string.print_tree(save_path='./output/tree_by_string.gv', label=True)
 
     print("二叉树前序递归遍历:")
     tree.pre_order()

@@ -1,0 +1,20 @@
+// Binary Tree
+digraph {
+	"0745bc40-1a20-11ea-867d-4074e04adad9" [label=3 color=skyblue style=filled]
+	"0745bc41-1a20-11ea-b697-4074e04adad9" [label=5 color=green style=filled]
+	"0745bc40-1a20-11ea-867d-4074e04adad9" -> "0745bc41-1a20-11ea-b697-4074e04adad9" [label=L]
+	"0745bc42-1a20-11ea-80d3-4074e04adad9" [label=6 color=pink style=filled]
+	"0745bc41-1a20-11ea-b697-4074e04adad9" -> "0745bc42-1a20-11ea-80d3-4074e04adad9" [label=L]
+	"0745bc43-1a20-11ea-adb2-4074e04adad9" [label=2 color=pink style=filled]
+	"0745bc41-1a20-11ea-b697-4074e04adad9" -> "0745bc43-1a20-11ea-adb2-4074e04adad9" [label=R]
+	"0745bc44-1a20-11ea-98ea-4074e04adad9" [label=7 color=tomato style=filled]
+	"0745bc43-1a20-11ea-adb2-4074e04adad9" -> "0745bc44-1a20-11ea-98ea-4074e04adad9" [label=L]
+	"0745bc45-1a20-11ea-8428-4074e04adad9" [label=4 color=tomato style=filled]
+	"0745bc43-1a20-11ea-adb2-4074e04adad9" -> "0745bc45-1a20-11ea-8428-4074e04adad9" [label=R]
+	"0745bc46-1a20-11ea-ae01-4074e04adad9" [label=1 color=green style=filled]
+	"0745bc40-1a20-11ea-867d-4074e04adad9" -> "0745bc46-1a20-11ea-ae01-4074e04adad9" [label=R]
+	"0745bc47-1a20-11ea-9fa1-4074e04adad9" [label=0 color=green style=filled]
+	"0745bc46-1a20-11ea-ae01-4074e04adad9" -> "0745bc47-1a20-11ea-9fa1-4074e04adad9" [label=L]
+	"0745bc48-1a20-11ea-88e3-4074e04adad9" [label=8 color=green style=filled]
+	"0745bc46-1a20-11ea-ae01-4074e04adad9" -> "0745bc48-1a20-11ea-88e3-4074e04adad9" [label=R]
+}
