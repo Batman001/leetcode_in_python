@@ -13,6 +13,7 @@ def edit_distance(word1, word2):
     m = len(word1)
     n = len(word2)
 
+    # dp的形状是 m+1 * n+1 形状
     dp = [[0 for _ in range(n+1)] for _ in range(m+1)]
 
     # 处理第一行的编辑距离
