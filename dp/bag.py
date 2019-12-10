@@ -10,6 +10,7 @@ def bag(n, cap, weight, value):
     :param value:  每个物品的价值 按照编号顺序
     :return: 返回最大价值
     """
+    # 设置动态转移矩阵为 n+1 * cap+1
     dp = [[0 for _ in range(cap + 1)] for _ in range(n+1)]
 
     for i in range(1, n + 1):
@@ -24,7 +25,7 @@ def bag(n, cap, weight, value):
 
 
 if __name__ == "__main__":
-    n = 4    # 一共有6件物品
+    n = 4    # 一共有4件物品
     cap = 8
     weight = {1: 2, 2: 3, 3: 4, 4: 5}
     value = {1: 3, 2: 4, 3: 5, 4: 6}

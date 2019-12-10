@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-def longest_common_subsequence(text1: str, text2: str) -> int:
+def longest_common_sub_sequence(text1: str, text2: str) -> int:
     """
     查找两个字符串的最长公共序列
     :param text1: 字符串1
@@ -24,4 +24,4 @@ def longest_common_subsequence(text1: str, text2: str) -> int:
 if __name__ == "__main__":
     str1 = "abcde"
     str2 = "ace"
-    print(longest_common_subsequence(str1, str2))
+    print(longest_common_sub_sequence(str1, str2))
