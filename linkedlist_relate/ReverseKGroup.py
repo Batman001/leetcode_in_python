@@ -94,5 +94,3 @@ if __name__ == "__main__":
 
     res = s.reverse_k_group(head, 5)
     s.print_list_node(res)
-
-

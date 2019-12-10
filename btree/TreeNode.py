@@ -439,11 +439,3 @@ if __name__ == "__main__":
 
     print("二叉树层次遍历从叶子节点层开始到根节点：")
     print(tree.level_order_list_reverse())
-
-
-
-
-
-
-
-

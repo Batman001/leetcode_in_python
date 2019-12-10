@@ -240,7 +240,3 @@ if __name__ == "__main__":
     ancestor_ = lc3.lowest_common_ancestor_(tree, tree.right.left.left, tree.right.right)
     print(ancestor.val)
     print(ancestor_.val)
-
-
-
-
