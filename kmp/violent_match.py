@@ -29,7 +29,5 @@ def violent_match(main_str, mode_str):
         return -1
 
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     print(violent_match("Hello world", "or"))
-
-
