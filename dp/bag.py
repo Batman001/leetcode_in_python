@@ -30,4 +30,3 @@ if __name__ == "__main__":
     weight = {1: 2, 2: 3, 3: 4, 4: 5}
     value = {1: 3, 2: 4, 3: 5, 4: 6}
     print(bag(n, cap, weight, value))
-

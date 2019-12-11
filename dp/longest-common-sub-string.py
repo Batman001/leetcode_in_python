@@ -27,4 +27,3 @@ if __name__ == "__main__":
     str1 = "asdfas"
     str2 = "werasdfaswer"
     print(longest_common_sub_string(str1, str2))
-

@@ -78,8 +78,3 @@ if __name__ == "__main__":
         print(key, parent[key])
     print("计算从F节点到开始节点的最短路径为：")
     cal_shortest_path(parent, "F")
-
-
-
-
-
