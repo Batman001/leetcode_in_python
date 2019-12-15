@@ -72,6 +72,26 @@ class Solution(object):
         return res
 
 
+def reverse(head):
+    if head is None:
+        return head
+    cur_node = head
+    pre_node = None
+    while cur_node:
+        next_node = cur_node.next
+        cur_node.next = pre_node
+        pre_node = cur_node
+        cur_node = next_node
+
+    return pre_node
+
+
+def print_linked_list(head):
+    while head:
+        print(str(head.val) + "->", end="")
+        head = head.next
+
+
 if __name__ == "__main__":
     s = Solution()
     head = ListNode(2)
@@ -79,8 +99,14 @@ if __name__ == "__main__":
     head.next.next = ListNode(8)
     head.next.next.next = ListNode(3)
     head.next.next.next.next = ListNode(5)
-    result = s.next_larger_nodes(head)
-    print(result)
+    print("本身链表为:")
+    print_linked_list(head)
+    # result = s.next_larger_nodes(head)
+    reverse_result = reverse(head)
+    print()
+    print("链表逆置的结果为：")
+    print_linked_list(reverse_result)
+
 
 
 

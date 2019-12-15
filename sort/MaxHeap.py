@@ -55,6 +55,7 @@ class MaxHeap:
 
 if __name__ == "__main__":
     nums = [1, -9, 45, -5, 89, 3, 0, 1.5, 9, 10]
+    nums = [1, 3, 2, 48, 70, 18, 999, 101, 124, 216]
     print("未建立堆之前的nums数组为:")
     print(nums)
 

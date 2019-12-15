@@ -1,0 +1,20 @@
+// Binary Tree
+digraph {
+	"8bed4f7e-1e27-11ea-b783-acde48001122" [label=3 color=pink style=filled]
+	"8bed6400-1e27-11ea-b783-acde48001122" [label=5 color=yellow style=filled]
+	"8bed4f7e-1e27-11ea-b783-acde48001122" -> "8bed6400-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed6612-1e27-11ea-b783-acde48001122" [label=6 color=purple style=filled]
+	"8bed6400-1e27-11ea-b783-acde48001122" -> "8bed6612-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed67ca-1e27-11ea-b783-acde48001122" [label=2 color=purple style=filled]
+	"8bed6400-1e27-11ea-b783-acde48001122" -> "8bed67ca-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed6950-1e27-11ea-b783-acde48001122" [label=7 color=green style=filled]
+	"8bed67ca-1e27-11ea-b783-acde48001122" -> "8bed6950-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed6a9a-1e27-11ea-b783-acde48001122" [label=4 color=green style=filled]
+	"8bed67ca-1e27-11ea-b783-acde48001122" -> "8bed6a9a-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed6bda-1e27-11ea-b783-acde48001122" [label=1 color=yellow style=filled]
+	"8bed4f7e-1e27-11ea-b783-acde48001122" -> "8bed6bda-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed6d06-1e27-11ea-b783-acde48001122" [label=0 color=tomato style=filled]
+	"8bed6bda-1e27-11ea-b783-acde48001122" -> "8bed6d06-1e27-11ea-b783-acde48001122" [label=""]
+	"8bed7364-1e27-11ea-b783-acde48001122" [label=8 color=tomato style=filled]
+	"8bed6bda-1e27-11ea-b783-acde48001122" -> "8bed7364-1e27-11ea-b783-acde48001122" [label=""]
+}

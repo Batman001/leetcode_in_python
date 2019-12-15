@@ -2,7 +2,6 @@
 from graphviz import Digraph
 import random
 import uuid
-import sys
 import os
 
 
