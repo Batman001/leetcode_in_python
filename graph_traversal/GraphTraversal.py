@@ -15,6 +15,7 @@ def BFS(graph, s):
     # 使用parent 存储当前节点的上一个节点
     parent = {s: None}
     while len(queue) > 0:
+        # 使用队列的性质 先进先出
         vertex = queue.pop(0)
         nodes = graph[vertex]
         for node in nodes:
@@ -28,8 +29,8 @@ def BFS(graph, s):
 
 def DFS(graph, s):
     """
-    图的深度遍历 使用队列进行实现 主要体现在 queue.pop() 使用存储结构为stack
-    :param graph: 广度遍历的图
+    图的深度遍历 使用队列进行实现 主要体现在 stack.pop() 使用存储结构为stack
+    :param graph: 深度遍历的图
     :param s: 开始的节点
     :return:
     """
@@ -38,6 +39,7 @@ def DFS(graph, s):
     seen = set()
     seen.add(s)
     while len(stack) > 0:
+        # 使用栈的性质 先进后出
         vertex = stack.pop()
         nodes = graph[vertex]
         for node in nodes:
