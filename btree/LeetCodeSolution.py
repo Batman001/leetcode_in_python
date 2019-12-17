@@ -3,12 +3,12 @@ from btree import TreeNode
 from btree.TreeNode import CreateTree
 
 
-class LeetCodeSolution(object):
+class leetcodeSolution(object):
 
     def __init__(self, question_num, all_paths=[]):
         """
         初始化参数
-        :param question_num: leetCode题目编号
+        :param question_num: leetcode题目编号
         """
         self.question_num = question_num
         self.all_paths = all_paths
@@ -34,6 +34,7 @@ class LeetCodeSolution(object):
     def sum_numbers(self, root):
         """
         leetcode129 求根到叶子节点数字之和
+        https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
         :param root: TreeNode
         :return: int
         """
@@ -59,7 +60,8 @@ class LeetCodeSolution(object):
 
     def lowest_common_ancestor(self, root, p, q):
         """
-        leetcode 二叉树的最近公共祖先(递归实现)
+        leetcode236 二叉树的最近公共祖先(递归实现)
+        https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
         :param root 二叉树的根节点
         :param p: 二叉树某一节点p
         :param q: 二叉树某一节点q
@@ -107,6 +109,7 @@ class LeetCodeSolution(object):
     def lowest_common_ancestor_(self, root, p, q):
         """
         leetcode236 二叉树的最近公共祖先(非递归实现)
+        https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
         :param root: 根节点
         :param p: 二叉树某一节点p
         :param q: 二叉树某一节点q
@@ -129,6 +132,7 @@ class LeetCodeSolution(object):
     def is_symmetric(self, root):
         """
         leetcode101 判断一个二叉树是不是一个镜像对称的二叉树(递归实现)
+        https://leetcode-cn.com/problems/symmetric-tree/
         :param root: 二叉树根节点
         :return: boolean 是否为镜像二叉树
         """
@@ -155,6 +159,7 @@ class LeetCodeSolution(object):
     def is_symmetric_(root):
         """
         leetcode101 判断一个二叉树是不是一个镜像对称的二叉树(非递归实现)
+        https://leetcode-cn.com/problems/symmetric-tree/
         解决方法:层次遍历 判断每一层是不是回文数组
         :param root: 二叉树根节点
         :return: boolean True or False
@@ -182,6 +187,7 @@ class LeetCodeSolution(object):
     def prune_tree(self, root):
         """
         leetcode 814 二叉树的剪枝 (使用递归实现）
+        https://leetcode-cn.com/problems/binary-tree-pruning/
         给定二叉树根结点 root，此外树的每个结点的值要么是 0，要么是 1。
         返回移除了所有不包含 1 的子树的原二叉树。
         :param root: 待剪枝的二叉树的根节点
@@ -197,10 +203,34 @@ class LeetCodeSolution(object):
 
         return root
 
+    def diameterOfBinaryTree(self, root):
+        """
+        leetcode 543 https://leetcode-cn.com/problems/diameter-of-binary-tree/
+        给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。
+        这条路径可能穿过根结点。
+        :type root: 二叉树根节点
+        :rtype: int 返回最长直径
+        """
+        if not root:
+            return 0
+
+        res = []
+        self.dfs(root, res)
+        return max(res) - 1
+
+    def dfs(self, root, res):
+        if not root:
+            return 0
+        left = self.dfs(root.left, res)
+        right = self.dfs(root.right, res)
+        res.append(left + right + 1)
+        return max(left, right) + 1
+
 
 def merge_tree(t1, t2):
     """
-    LeetCode617,合并两个二叉树 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+    leetcode617,合并两个二叉树 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+    https://leetcode-cn.com/problems/merge-two-binary-trees/
     你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，
     否则不为 NULL 的节点将直接作为新二叉树的节点。
     :param t1: 二叉树t1
@@ -211,7 +241,7 @@ def merge_tree(t1, t2):
         return t2
     if t2 is None:
         return t1
-    new_root = TreeNode()
+    new_root = TreeNode
     new_root.val = t1.val + t2.val
     new_root.left = merge_tree(t1.left, t2.left)
     new_root.right = merge_tree(t1.right, t2.right)
@@ -220,20 +250,20 @@ def merge_tree(t1, t2):
 
 if __name__ == "__main__":
     tree = TreeNode.InitTree().init_tree()
-    lc1 = LeetCodeSolution(112)
+    lc1 = leetcodeSolution(112)
     lc1.execute()
     print(lc1.has_path_sum(tree, 30))
 
     print("=====================================")
 
     one_path = []
-    lc2 = LeetCodeSolution(129)
+    lc2 = leetcodeSolution(129)
     lc2.execute()
     tree_ = CreateTree('49051').create_tree_by_list()
     print(lc2.sum_numbers(tree_))
 
     print("=====================================")
-    lc3 = LeetCodeSolution(236)
+    lc3 = leetcodeSolution(236)
     lc3.execute()
 
     ancestor = lc3.lowest_common_ancestor(tree, tree.right.left.left, tree.right.right)
