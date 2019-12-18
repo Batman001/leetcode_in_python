@@ -5,20 +5,25 @@ from btree.TreeNode import CreateTree
 
 class leetcodeSolution(object):
 
-    def __init__(self, question_num, all_paths=[]):
+    def __init__(self, question_num, all_paths=None):
         """
         初始化参数
         :param question_num: leetcode题目编号
         """
+        if all_paths is None:
+            all_paths = []
         self.question_num = question_num
         self.all_paths = all_paths
 
     def execute(self):
+        print("=====================================")
         print("当前leetcode题目号码是:" + str(self.question_num))
         print("执行的结果为:")
 
     def has_path_sum(self, root, sum_data):
         """
+        leetcode 112 路径总和
+        https://leetcode-cn.com/problems/path-sum/
         路径总和 给定一个二叉树和一个目标和,判断该树中是否存在根节点到叶子节点的路径,这条路径上所有节点值相加等于目标和
         :param root: TreeNode
         :param sum_data: int 根节点到叶子节点路径的和
@@ -213,7 +218,6 @@ class leetcodeSolution(object):
         """
         if not root:
             return 0
-
         res = []
         self.dfs(root, res)
         return max(res) - 1
@@ -254,7 +258,6 @@ if __name__ == "__main__":
     lc1.execute()
     print(lc1.has_path_sum(tree, 30))
 
-    print("=====================================")
 
     one_path = []
     lc2 = leetcodeSolution(129)
@@ -262,7 +265,6 @@ if __name__ == "__main__":
     tree_ = CreateTree('49051').create_tree_by_list()
     print(lc2.sum_numbers(tree_))
 
-    print("=====================================")
     lc3 = leetcodeSolution(236)
     lc3.execute()
 
@@ -270,3 +272,8 @@ if __name__ == "__main__":
     ancestor_ = lc3.lowest_common_ancestor_(tree, tree.right.left.left, tree.right.right)
     print(ancestor.val)
     print(ancestor_.val)
+
+
+    lc4 = leetcodeSolution(543)
+    lc4.execute()
+    print("二叉树的最大直径为:" + str(lc4.diameterOfBinaryTree(tree)))
