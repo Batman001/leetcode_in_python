@@ -97,7 +97,7 @@ class TreeNodeFunction:
 
     def get_height(self, root):
         """
-        返回二叉树的高度
+        返回二叉树的高度(递归)
         :param root:
         :return:
         """
@@ -106,6 +106,29 @@ class TreeNodeFunction:
         left = self.get_height(root.left)
         right = self.get_height(root.right)
         return max(left, right) + 1
+
+    @staticmethod
+    def get_height_(root):
+        """
+        二叉树的广度搜索 返回最大层数 即为二叉树的高度
+        使用队列实现二叉树广度搜索
+        :param root:
+        :return:
+        """
+        if not root:
+            return 0
+        queue = [root]
+        height = 0
+        while queue:
+            height += 1
+            # 每一层递归时 进行高度+1操作
+            for i in range(len(queue)):
+                cur_node = queue.pop(0)
+                if cur_node.left:
+                    queue.append(cur_node.left)
+                if cur_node.right:
+                    queue.append(cur_node.right)
+        return height
 
 
 if __name__ == "__main__":
@@ -134,3 +157,7 @@ if __name__ == "__main__":
     print("后序非遍历的结果为:")
     func.post_order_(tree)
     print()
+
+    print("二叉树递归计算的高度为：", str(func.get_height(tree)))
+
+    print("二叉树非递归计算的高度为：", str(func.get_height_(tree)))
