@@ -60,6 +60,13 @@ def cal_shortest_path(parent, end):
         print(end)
         end = parent[end]
 
+def tree_diameter():
+    """
+    获得图的最长路径 返回两个节点最长的路径值
+    :return:
+    """
+    pass
+
 
 if __name__ == "__main__":
     graph = {

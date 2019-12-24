@@ -194,8 +194,10 @@ class TreeNode:
         return result
 
     def height(self):
-        """ 返回二叉树的高度 """
-        '''树的高度为0,只有root节点的高度为1'''
+        """
+        返回二叉树的高度
+        树的高度为0,只有root节点的高度为1
+        """
         if self.val is None:
             return 0
         elif self.left is None and self.right is None:
