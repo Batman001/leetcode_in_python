@@ -4,6 +4,22 @@ class ListNode(object):
         self.next = None
 
 
+def create_linked_list(array):
+    """
+    通过array实现链表的构建
+    input： [1,2,3,4,5]
+    output: 1->2->3->4->5
+    :param array:
+    :return:
+    """
+    head = ListNode(array[0])
+    cur_node = head
+    for item in array[1:]:
+        cur_node.next = ListNode(item)
+        cur_node = cur_node.next
+    return head
+
+
 class Solution(object):
 
     @staticmethod
@@ -88,7 +104,7 @@ def reverse(head):
 
 def print_linked_list(head):
     while head:
-        print(str(head.val) + "->", end="")
+        print(str(head.val), end="->")
         head = head.next
 
 

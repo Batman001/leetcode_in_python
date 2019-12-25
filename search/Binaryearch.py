@@ -5,7 +5,7 @@ def search_array(sort_array, target, begin, end):
     """二分查找递归实现 """
     if begin > end:
         return False
-    mid = (begin+end)/2
+    mid = (begin+end) // 2
     if target == sort_array[mid]:
         return True
     elif target < sort_array[mid]:
@@ -19,7 +19,7 @@ def search_array_(sort_array, target):
     begin = 0
     end = len(sort_array) - 1
     while begin <= end:
-        mid = (begin + end)/2
+        mid = (begin + end) // 2
         if target == sort_array[mid]:
             return True
         elif target > sort_array[mid]:
@@ -40,7 +40,7 @@ def search_insert(sort_nums, target):
     end = len(sort_nums) - 1
     index = -1
     while index == -1:
-        mid = (begin+end)/2
+        mid = (begin+end) // 2
         if target == sort_nums[mid]:
             index = mid
         elif target > sort_nums[mid]:
@@ -65,7 +65,7 @@ def search_range(nums, target):
         begin = 0
         end = len(nums_) - 1
         while begin <= end:
-            mid = int((begin+end)/2)
+            mid = (begin + end) // 2
             if target_ == nums_[mid]:
                 if mid == 0 or nums_[mid - 1] < target_:
                     return mid
@@ -80,7 +80,7 @@ def search_range(nums, target):
         begin = 0
         end = len(nums_) - 1
         while begin <= end:
-            mid = int((begin+end)/2)
+            mid = (begin + end) // 2
             if target_ == nums_[mid]:
                 if mid == len(nums_)-1 or target_ < nums_[mid + 1]:
                     return mid
