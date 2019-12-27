@@ -110,11 +110,7 @@ def print_linked_list(head):
 
 if __name__ == "__main__":
     s = Solution()
-    head = ListNode(2)
-    head.next = ListNode(7)
-    head.next.next = ListNode(8)
-    head.next.next.next = ListNode(3)
-    head.next.next.next.next = ListNode(5)
+    head = create_linked_list([2, 7, 8, 3, 5])
     print("本身链表为:")
     print_linked_list(head)
     # result = s.next_larger_nodes(head)
@@ -122,7 +118,3 @@ if __name__ == "__main__":
     print()
     print("链表逆置的结果为：")
     print_linked_list(reverse_result)
-
-
-
-
