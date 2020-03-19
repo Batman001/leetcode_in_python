@@ -20,5 +20,5 @@ def climb_stair(n):
 
 
 if __name__ == "__main__":
-    n = 56
+    n = 10
     print(climb_stair(n))
