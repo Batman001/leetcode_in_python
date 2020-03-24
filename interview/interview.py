@@ -3,7 +3,7 @@ from linkedlist_relate.ReverstListNode import ListNode, \
     create_linked_list, print_linked_list
 
 
-def merge_linkedList(head1, head2):
+def merge_linked_list(head1, head2):
     """
     归并排序head1链表和head2链表
     :param head1: 链表head1的头结点
@@ -117,18 +117,18 @@ def search_in_dup(array, target):
 
 
 if __name__ == "__main__":
-    head1 = create_linked_list([2,3,5,7,8])
-    head2 = create_linked_list([1,4,7,9,10])
+    head1 = create_linked_list([2, 3, 5, 7, 8])
+    head2 = create_linked_list([1, 4, 7, 9, 10])
 
-    res = merge_linkedList(head1, head2)
+    res = merge_linked_list(head1, head2)
     print_linked_list(res)
     print()
 
-    head3 = create_linked_list([1,6,8,12,9])
-    head4 = create_linked_list([4,6,9,7,23])
+    head3 = create_linked_list([1, 6, 8, 12, 9])
+    head4 = create_linked_list([4, 6, 9, 7, 23])
     res_sum = sum_linked_list(head3, head4)
     print_linked_list(res_sum)
     print()
 
-    arr = [1,2,4,6,8,9,9,10,23,23,24]
+    arr = [1, 2, 4, 6, 8, 9, 9, 10, 23, 23, 24]
     print("查找重复数组出现的位置为：", search_in_dup(arr, 8))
