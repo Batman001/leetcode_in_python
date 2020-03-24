@@ -25,8 +25,8 @@ def bag(n, cap, weight, value):
 
 
 if __name__ == "__main__":
-    n = 4    # 一共有4件物品
-    cap = 8
-    weight = {1: 2, 2: 3, 3: 4, 4: 5}
-    value = {1: 3, 2: 4, 3: 5, 4: 6}
-    print(bag(n, cap, weight, value))
+    num_things = 4    # 一共有4件物品
+    capacity = 8
+    weights = {1: 2, 2: 3, 3: 4, 4: 5}
+    values = {1: 3, 2: 4, 3: 5, 4: 6}
+    print(bag(num_things, capacity, weights, values))

@@ -71,7 +71,7 @@ class Solution:
         return pre
 
     @staticmethod
-    def print_list_node(self, head):
+    def print_list_node(head):
         """
         打印链表的方法
         :param head: 链表表头
