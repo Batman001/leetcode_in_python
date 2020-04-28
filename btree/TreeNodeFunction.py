@@ -54,8 +54,8 @@ class TreeNodeFunction:
     @staticmethod
     def in_order_(root):
         stack = []
-        while stack or not root:
-            while not root:
+        while stack or root:
+            while root:
                 stack.append(root)
                 root = root.left
             if stack:
