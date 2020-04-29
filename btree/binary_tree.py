@@ -13,12 +13,13 @@ def pre_order(root):
 def pre_order_(root):
     stack = [root]
     while stack:
-        cur_node = stack.pop()
-        print(cur_node.val, end=' ')
-        if cur_node.right is not None:
-            stack.append(cur_node.right)
-        if cur_node.left is not None:
-            stack.append(cur_node.left)
+        root = stack.pop()
+        print(root.val, end=' ')
+
+        if root.right:
+            stack.append(root.right)
+        if root.left:
+            stack.append(root.left)
 
 
 def in_order(root):
@@ -36,9 +37,9 @@ def in_order_(root):
             stack.append(root)
             root = root.left
         if stack:
-            cur_node = stack.pop()
-            print(cur_node.val, end=' ')
-            root = cur_node.right
+            root = stack.pop()
+            print(root.val, end=' ')
+            root = root.right
 
 
 def post_order(root):
@@ -55,9 +56,9 @@ def post_order_(root):
     while stack:
         root = stack.pop()
         reverse_stack.append(root)
-        if root.left is not None:
+        if root.left:
             stack.append(root.left)
-        if root.right is not None:
+        if root.right:
             stack.append(root.right)
 
     while reverse_stack:

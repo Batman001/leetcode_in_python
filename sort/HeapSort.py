@@ -9,7 +9,7 @@ def build_heap(heap):
     """
     heap_size = len(heap)
     # 循环至root根节点结束
-    for i in range(int(heap_size/2)-1, -1, -1):
+    for i in range(heap_size // 2-1, -1, -1):
         max_modify(heap, i)
 
 

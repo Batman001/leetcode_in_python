@@ -71,3 +71,4 @@ if __name__ == "__main__":
     res_final_queens = [change_style(solution) for solution in final_queens]
     print(res_final_queens)
     print(len(final_queens))
+

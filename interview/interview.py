@@ -58,7 +58,7 @@ def sum_linked_list(head1, head2):
         else:
             cur_node.next = ListNode(cur_sum % 10)
             cur_node = cur_node.next
-            last_res = cur_sum //10
+            last_res = cur_sum // 10
 
         head1 = head1.next
         head2 = head2.next
@@ -116,6 +116,35 @@ def search_in_dup(array, target):
     return -1
 
 
+class MinHeap:
+    def __init__(self, array):
+        self.heap = array
+        self.heap_size = len(array)
+
+    def build_heap(self):
+        for i in range(self.heap_size // 2 -1, -1, -1):
+            self.min_adjust(i)
+
+    def min_adjust(self, index):
+        left_index = index * 2 + 1
+        right_index = index * 2 + 2
+        min_index = index
+        if left_index < self.heap_size and self.heap[left_index] < self.heap[index]:
+            min_index = left_index
+        if right_index < self.heap_size and self.heap[right_index] < self.heap[min_index]:
+            min_index = right_index
+
+        if min_index != index:
+            self.heap[index], self.heap[min_index] = self.heap[min_index], self.heap[index]
+            self.min_adjust(min_index)
+
+    def heap_sort(self):
+        for i in range(len(self.heap)):
+            self.heap[0], self.heap[self.heap_size-1] = self.heap[self.heap_size-1], self.heap[0]
+            self.heap_size -= 1
+            self.min_adjust(0)
+
+
 if __name__ == "__main__":
     head1 = create_linked_list([2, 3, 5, 7, 8])
     head2 = create_linked_list([1, 4, 7, 9, 10])
@@ -130,5 +159,16 @@ if __name__ == "__main__":
     print_linked_list(res_sum)
     print()
 
-    arr = [1, 2, 4, 6, 8, 9, 9, 10, 23, 23, 24]
-    print("查找重复数组出现的位置为：", search_in_dup(arr, 8))
+    nums = [1, -9, 45, -5, 89, 3, 0, 1.5, 9, 10]
+    print("未建立堆之前的nums数组为:")
+    print(nums)
+
+    min_heap = MinHeap(nums)
+    min_heap.build_heap()
+    print("建立小根堆之后的nums数组为:")
+    print(min_heap.heap)
+
+    min_heap.heap_sort()
+    print("经过小根堆排序后的nums数组为:")
+    print(min_heap.heap)
+
