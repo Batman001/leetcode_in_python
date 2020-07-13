@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+# 无向有环图的深度、广度遍历
 
 
 def BFS(graph, s):
@@ -29,7 +30,7 @@ def BFS(graph, s):
 
 def DFS(graph, s):
     """
-    图的深度遍历 使用队列进行实现 主要体现在 stack.pop() 使用存储结构为stack
+    图的深度遍历 使用栈结构进行实现 主要体现在 stack.pop() 使用存储结构为stack
     :param graph: 深度遍历的图
     :param s: 开始的节点
     :return:
@@ -59,6 +60,7 @@ def cal_shortest_path(parent, end):
     while end is not None:
         print(end)
         end = parent[end]
+
 
 def tree_diameter():
     """
