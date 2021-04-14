@@ -78,3 +78,5 @@ if __name__ == "__main__":
     nums = [-5, -2, -4, -2, -5, -4, 0, 0]
     print(two_sum(nums, 0))
     print(three_sum(nums, -10))
+    print(three_sum(nums, -9))
+
