@@ -13,15 +13,15 @@ class Solution(object):
 
     @staticmethod
     def merge(self, intervals):
-        '''
+        """
         LeetCode 56 Merge Intervals
         input:[[1,3],[2,6],[8,10],[15,18]]
         output:[[1,6], [8,10], [15,18]]
         :param intervals:
         :return:
-        '''
+        """
         merged = []
-        intervals.sort(key=lambda x:x.start)
+        intervals.sort(key=lambda x: x.start)
         for interval in intervals:
             if not merged or merged[-1].end < interval.start:
                 merged.append(interval)
@@ -31,14 +31,14 @@ class Solution(object):
 
     @staticmethod
     def insert(self, intervals, newInterval):
-        '''
+        """
         LeetCode 57 Insert Interval
         input:[[1,3],[6,9]] newInterval=[2,5]
         output:[[1,5], [6,9]]
         :param intervals:
         :param nreInterval:
         :return:
-        '''
+        """
         left, right = 0, len(intervals)-1
 
         # 找到不影响插入效果的前面的interval

@@ -6,7 +6,7 @@ import random
 
 def build_heap(array, k):
     array = array[:k]
-    for i in range(int(k/2)-1,-1,-1):
+    for i in range(int(k/2)-1, -1, -1):
         minify(array, i)
     return array
 
@@ -15,7 +15,7 @@ def minify(array, i):
     left = left_index(i)
     right = right_index(i)
     length = len(array)
-    if left < length and array[left]<array[i] :
+    if left < length and array[left] < array[i]:
         smallest = left
     else:
         smallest = i
@@ -32,7 +32,7 @@ def heap_sort(heap):
     result = []
     for i in range(len(heap)):
         heap_size = len(heap)
-        heap[0], heap[heap_size -1] = heap[heap_size -1],heap[0]
+        heap[0], heap[heap_size - 1] = heap[heap_size -1], heap[0]
         result.append(heap.pop())
         minify(heap, 0)
     return result
@@ -77,3 +77,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
