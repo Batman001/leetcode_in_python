@@ -24,6 +24,22 @@ class Solution:
         return True
 
 
+def check_palindrome(s):
+    """
+    双指针判断字符串是否为回文字符串
+    :param s:
+    :return:
+    """
+    filter_str = "".join(filter(str.isalnum, s)).lower()
+    left, right = 0, len(filter_str) - 1
+    while left < right:
+        if filter_str[left] != filter_str[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+
 if __name__ == "__main__":
     solution = Solution()
     test_str = "A man, a plan, a canal: Panama"

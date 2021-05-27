@@ -1,12 +1,12 @@
 // Binary Tree
 digraph {
-	"ebb9b768-2139-11ea-abcc-4074e04adad9" [label=4 color=pink style=filled]
-	"ebb9b769-2139-11ea-9e2f-4074e04adad9" [label=9 color=skyblue style=filled]
-	"ebb9b768-2139-11ea-abcc-4074e04adad9" -> "ebb9b769-2139-11ea-9e2f-4074e04adad9" [label=L]
-	"ebb9b76a-2139-11ea-9ff8-4074e04adad9" [label=5 color=red style=filled]
-	"ebb9b769-2139-11ea-9e2f-4074e04adad9" -> "ebb9b76a-2139-11ea-9ff8-4074e04adad9" [label=L]
-	"ebb9b76b-2139-11ea-ba6e-4074e04adad9" [label=1 color=red style=filled]
-	"ebb9b769-2139-11ea-9e2f-4074e04adad9" -> "ebb9b76b-2139-11ea-ba6e-4074e04adad9" [label=R]
-	"ebb9b76c-2139-11ea-93d5-4074e04adad9" [label=0 color=skyblue style=filled]
-	"ebb9b768-2139-11ea-abcc-4074e04adad9" -> "ebb9b76c-2139-11ea-93d5-4074e04adad9" [label=R]
+	"4f0aefb4-a1aa-11eb-b4b0-1e00da1ed869" [label=4 color=orange style=filled]
+	"4f0af5a4-a1aa-11eb-b4b0-1e00da1ed869" [label=9 color=skyblue style=filled]
+	"4f0aefb4-a1aa-11eb-b4b0-1e00da1ed869" -> "4f0af5a4-a1aa-11eb-b4b0-1e00da1ed869" [label=L]
+	"4f0af6d0-a1aa-11eb-b4b0-1e00da1ed869" [label=5 color=yellow style=filled]
+	"4f0af5a4-a1aa-11eb-b4b0-1e00da1ed869" -> "4f0af6d0-a1aa-11eb-b4b0-1e00da1ed869" [label=L]
+	"4f0af798-a1aa-11eb-b4b0-1e00da1ed869" [label=1 color=yellow style=filled]
+	"4f0af5a4-a1aa-11eb-b4b0-1e00da1ed869" -> "4f0af798-a1aa-11eb-b4b0-1e00da1ed869" [label=R]
+	"4f0af860-a1aa-11eb-b4b0-1e00da1ed869" [label=0 color=skyblue style=filled]
+	"4f0aefb4-a1aa-11eb-b4b0-1e00da1ed869" -> "4f0af860-a1aa-11eb-b4b0-1e00da1ed869" [label=R]
 }

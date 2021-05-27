@@ -25,7 +25,7 @@ def search_matrix(matrix, target):
             right = mid
     # target row，即target所在行 使用tmp表示
     tmp = mid
-    l, r = 0, len(matrix[0]) - 1
+    l, r = 0, len(matrix[0])
 
     while l < r:
         mid = (l + r) // 2
@@ -40,5 +40,5 @@ def search_matrix(matrix, target):
 
 if __name__ == '__main__':
     matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50], [60, 61, 72, 83], [85, 86, 90, 92], [93, 95, 96, 98]]
-    target = -9
+    target = 50
     print(search_matrix(matrix, target))

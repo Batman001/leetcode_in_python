@@ -66,7 +66,7 @@ class Trie:
         """
         def get_key(pre, pre_node):
             """
-
+            获取以pre为开始的当前全部word数据
             :param pre:
             :param pre_node:
             :return:
@@ -84,7 +84,6 @@ class Trie:
             return words
         if self.search(prefix):
             words.append(prefix)
-            return words
 
         node = self.root
         for char in prefix:
@@ -105,7 +104,8 @@ if __name__ == "__main__":
     obj.insert("hello")
     obj.insert("helo")
     obj.insert("heihei")
+    obj.insert("he")
     print(obj.search("chin"))
     print(obj.starts_with("jape"))
     print(obj.get_start_words("chin"))
-    print(obj.get_start_words(""))
+    print(obj.get_start_words("he"))

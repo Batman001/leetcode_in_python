@@ -23,9 +23,9 @@ class Solve:
     def dfs(self, start, S, result, subset):
         result.append(subset)
         for i in range(start, len(S)):
-            self.dfs(i+1,S,result,subset +[S[i]])
+            self.dfs(i+1, S, result, subset + [S[i]])
 
-    def subset(self,S):
+    def subset(self, S):
         if S is None:
             return []
         result = []
@@ -35,7 +35,7 @@ class Solve:
 
 if __name__ == "__main__":
     s = Solution()
-    result = s.subsets([1,2,3,4])
+    result = s.subsets([1, 2, 3, 4])
     print(result)
     print(len(result))
 
