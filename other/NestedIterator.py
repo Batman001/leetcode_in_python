@@ -32,5 +32,5 @@ class NestedIterator(object):
 
 
 if __name__ == "__main__":
-    n = NestedIterator([1,2,[2,3,[4,7,8]]])
+    n = NestedIterator([1, 2, [2, 3, [4, 7, 8]]])
     print(n)

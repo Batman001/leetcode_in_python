@@ -10,6 +10,18 @@ def pre_order(root):
     pre_order(root.right)
 
 
+def preorder_(root):
+    stack = [root]
+
+    while stack:
+        root = stack.pop()
+        print(root.val, end=" ")
+        if root.right:
+            stack.append(root.right)
+        if root.left:
+            stack.append(root.left)
+
+
 def pre_order_(root):
     stack = [root]
     while stack:
@@ -30,6 +42,19 @@ def in_order(root):
     in_order(root.right)
 
 
+def inorder_(root):
+    stack = []
+    while stack or root:
+        while root:
+            stack.append(root)
+            root = root.left
+
+        if stack:
+            root = stack.pop()
+            print(root.val, end=" ")
+            root = root.right
+
+
 def in_order_(root):
     stack = []
     while stack or root:
@@ -48,6 +73,25 @@ def post_order(root):
     post_order(root.left)
     post_order(root.right)
     print(root.val, end=' ')
+
+
+def postorder_(root):
+    stack = [root]
+    reverse_stack = []
+
+    while stack:
+        root = stack.pop()
+        reverse_stack.append(root)
+
+        if root.left:
+            stack.append(root.left)
+
+        if root.right:
+            stack.append(root.right)
+
+    while reverse_stack:
+        cur_node = reverse_stack.pop()
+        print(cur_node.val, end=' ')
 
 
 def post_order_(root):
@@ -89,6 +133,8 @@ if __name__ == "__main__":
 
     print("非递归后序遍历结果为：")
     post_order_(tree)
+    print()
+    postorder_(tree)
 
     print()
 

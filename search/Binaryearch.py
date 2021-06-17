@@ -95,23 +95,67 @@ def search_range(nums, target):
     return [left_index, right_index]
 
 
+def search_matrix(matrix, target):
+    """
+    :type matrix: List[List[int]]
+    :type target: int
+    :rtype: bool
+    二分查找实现
+    step1: 先在第一列上二分查找，寻找目标值所在列
+    step2: 在目标列执行二分查找，判断target是否存在
+    """
+    if matrix is None or matrix == [[]]:
+        return False
+
+    left = 0
+    right = len(matrix)
+    row_loc = 0
+    while left < right:
+        mid = (left + right) // 2
+        if matrix[mid][0] == target:
+            return True
+        if matrix[mid][0] < target:
+            row_loc = mid
+            left = mid + 1
+        else:
+            right = mid
+
+    print("该数应该出现在第几列？", row_loc)
+
+    l, r = 0, len(matrix[0])
+
+    while l < r:
+        mid = (l + r) // 2
+        if matrix[row_loc][mid] == target:
+            return True
+        if matrix[row_loc][mid] < target:
+            l = mid + 1
+        else:
+            r = mid - 1
+    return False
+
+
 if __name__ == "__main__":
 
-    a = [-1, 2, 5, 20, 90, 100, 207, 800]
-    b = [50, 90, 3, -1, 207, 80]
+    # a = [-1, 2, 5, 20, 90, 100, 207, 800]
+    # b = [50, 90, 3, -1, 207, 80]
+    #
+    # result = []
+    # result_ = []
+    #
+    # for item in b:
+    #     result.append(search_array(a, item, 0, len(a)))
+    #     result_.append(search_array_(a, item))
+    # # print(u"递归实现二分查找结果如下", result)
+    # # print(u"非递归实现二分查找", result_)
+    #
+    # print(search_insert(a, 890))
+    #
+    # sort_dup_list_1 = [1, 2, 4, 4, 4, 4, 5, 89, 90]
+    # sort_dup_list_2 = [2, 2, 2, 2, 4]
+    # sort_dup_list_3 = [1, 2, 3, 3, 3, 3, 3]
+    # print(search_range(sort_dup_list_3, 3))
 
-    result = []
-    result_ = []
-
-    for item in b:
-        result.append(search_array(a, item, 0, len(a)))
-        result_.append(search_array_(a, item))
-    # print(u"递归实现二分查找结果如下", result)
-    # print(u"非递归实现二分查找", result_)
-
-    print(search_insert(a, 890))
-
-    sort_dup_list_1 = [1, 2, 4, 4, 4, 4, 5, 89, 90]
-    sort_dup_list_2 = [2, 2, 2, 2, 4]
-    sort_dup_list_3 = [1, 2, 3, 3, 3, 3, 3]
-    print(search_range(sort_dup_list_3, 3))
+    matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50]]
+    target = 3
+    print(search_matrix(matrix, target))

@@ -65,14 +65,14 @@ class Solution(object):
         count_match = 0
         if left == len(s):
             return ""
-        while (right < len(s)):
+        while right < len(s):
             if t_count[s[right]] > s_count[s[right]]:
                 count_match += 1
             s_count[s[right]] += 1
-            while (left < len(s) and count_match == len(t)):
-                if (len(result) == 0 or len(result) > right - left + 1):
+            while left < len(s) and count_match == len(t):
+                if len(result) == 0 or len(result) > right - left + 1:
                     result = s[left:right + 1]
-                if (s_count[s[left]] <= t_count[s[left]]):
+                if s_count[s[left]] <= t_count[s[left]]:
                     count_match -= 1
                 s_count[s[left]] -= 1
                 left = self.find_index(left + 1, s, t_count)

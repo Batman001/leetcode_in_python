@@ -108,6 +108,38 @@ def print_linked_list(head):
         head = head.next
 
 
+def subsets(nums):
+    res = []
+    temp = []
+
+    dfs(res, temp, nums, 0)
+    return res
+
+
+def dfs(res, temp, nums, index):
+    res.append(temp[:])
+    for i in range(index, len(nums)):
+        temp.append(nums[i])
+        dfs(res, temp, nums, i + 1)
+        temp.pop(-1)
+
+
+def merge(nums1, m, nums2, n):
+    i, j, k = m - 1, n - 1, m + n - 1
+
+    while i >= 0 and j >= 0:
+        if nums1[i] < nums2[j]:
+            nums1[k] = nums2[j]
+            j -= 1
+        else:
+            nums1[k] = nums1[i]
+            i -= 1
+        k -= 1
+
+    nums1[:j + 1] = nums2[:j + 1]
+    return nums1
+
+
 if __name__ == "__main__":
     s = Solution()
     head = create_linked_list([2, 7, 8, 3, 5])
@@ -118,3 +150,14 @@ if __name__ == "__main__":
     print()
     print("链表逆置的结果为：")
     print_linked_list(reverse_result)
+
+    print("subsets result为：")
+    print(subsets([1, 2, 3]))
+
+    print("合并两个有序数组：")
+    nums1 = [1, 2, 3, 0, 0, 0]
+    m = 3
+    nums2 = [2, 4, 6]
+    n = 3
+    merge(nums1, m, nums2, n)
+    print(nums1)

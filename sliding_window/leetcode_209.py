@@ -2,7 +2,7 @@
 class Solution:
 
     @staticmethod
-    def min_subarray_len(self, s, nums):
+    def min_subarray_len(s, nums):
         """
         https://leetcode-cn.com/problems/minimum-size-subarray-sum/
         给定一个含有 n 个正整数的数组和一个正整数 s ，

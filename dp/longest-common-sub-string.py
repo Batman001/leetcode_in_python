@@ -25,5 +25,5 @@ def longest_common_sub_string(text1: str, text2: str) -> int:
 
 if __name__ == "__main__":
     str1 = "asdfas"
-    str2 = "werasdfaswer"
+    str2 = "werasdfswer"
     print(longest_common_sub_string(str1, str2))

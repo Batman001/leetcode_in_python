@@ -130,6 +130,31 @@ class TreeNodeFunction:
                     queue.append(cur_node.right)
         return height
 
+    @staticmethod
+    def get_all_path(root):
+        """
+        使用深度搜索遍历二叉树 返回全部从根节点到叶子结点的路径信息
+        :param root: 根节点
+        :return:
+        """
+        paths = []
+        if not root:
+            return paths
+
+        stack = [(root, str(root.val))]
+
+        while stack:
+            node, path = stack.pop()
+            # 如果该节点为叶子结点的话，则进行路径封装
+            if not node.left and not node.right:
+                paths.append(path)
+            if node.left:
+                stack.append((node.left, path + "->" + str(node.left.val)))
+            if node.right:
+                stack.append((node.right, path + "->" + str(node.right.val)))
+
+        return paths
+
 
 if __name__ == "__main__":
     array_string = " [3, 5, 1,6, 2,0, 8,null,null,7,4]"
@@ -161,3 +186,5 @@ if __name__ == "__main__":
     print("二叉树递归计算的高度为：", str(func.get_height(tree)))
 
     print("二叉树非递归计算的高度为：", str(func.get_height_(tree)))
+
+    print("获取从根节点到所有叶子结点的路径为：", func.get_all_path(tree))

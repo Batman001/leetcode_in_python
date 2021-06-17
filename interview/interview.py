@@ -32,6 +32,7 @@ def merge_linked_list(head1, head2):
 
 def sum_linked_list(head1, head2):
     """
+    leetcode 2
     对两个链表上下进行求和 如果超过10 则进1
     input:
     head1: 1->9->3->2
@@ -44,24 +45,24 @@ def sum_linked_list(head1, head2):
     :return:
     """
     new_head = ListNode(0)
-    cur_node = new_head
-
     # 使用全局变量存储上次剩余值
-    last_res = 0
-    while head1 and head2:
-        cur_sum = head1.val + head2.val + last_res
+    cur_node, last_res = new_head, 0
 
-        if cur_sum < 10:
-            cur_node.next = ListNode(cur_sum)
-            cur_node = cur_node.next
-            last_res = 0
-        else:
-            cur_node.next = ListNode(cur_sum % 10)
-            cur_node = cur_node.next
-            last_res = cur_sum // 10
+    while head1 or head2:
+        cur_sum = 0
 
-        head1 = head1.next
-        head2 = head2.next
+        if head1:
+            cur_sum += head1.val
+            head1 = head1.next
+
+        if head2:
+            cur_sum += head2.val
+            head2 = head2.next
+
+        cur_sum += last_res
+        last_res = cur_sum // 10
+        cur_node.next = ListNode(cur_sum % 10)
+        cur_node = cur_node.next
 
     if last_res != 0:
         cur_node.next = ListNode(last_res)
@@ -69,7 +70,7 @@ def sum_linked_list(head1, head2):
 
 
 def quick_sort(array, left, right):
-    while left < right:
+    if left < right:
         middle_index = get_middle_index(array, left, right)
         quick_sort(array, left, middle_index-1)
         quick_sort(array, middle_index+1, right)

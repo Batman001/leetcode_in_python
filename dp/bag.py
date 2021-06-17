@@ -21,7 +21,8 @@ def bag(n, cap, weight, value):
             # 否则需要尝试将当前物品放入背包 保留使得背包内价值最大的选择
             else:
                 dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight[i]] + value[i])
-    return dp
+    print(dp)
+    return max(map(max, dp))
 
 
 if __name__ == "__main__":
