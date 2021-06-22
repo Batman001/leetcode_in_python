@@ -252,6 +252,16 @@ def merge_tree(t1, t2):
     return new_root
 
 
+def invertTree(root):
+    if not root:
+        return root
+
+    root.left, root.right = root.right, root.left
+    invertTree(root.left)
+    invertTree(root.right)
+    return root
+
+
 if __name__ == "__main__":
     tree = TreeNode.InitTree().init_tree()
     lc1 = leetcodeSolution(112)
