@@ -3,7 +3,7 @@ from btree import TreeNode
 from btree.TreeNode import CreateTree
 
 
-class leetcodeSolution(object):
+class LeetcodeSolution(object):
 
     def __init__(self, question_num, all_paths=None):
         """
@@ -264,18 +264,18 @@ def invertTree(root):
 
 if __name__ == "__main__":
     tree = TreeNode.InitTree().init_tree()
-    lc1 = leetcodeSolution(112)
+    lc1 = LeetcodeSolution(112)
     lc1.execute()
     print(lc1.has_path_sum(tree, 30))
 
 
     one_path = []
-    lc2 = leetcodeSolution(129)
+    lc2 = LeetcodeSolution(129)
     lc2.execute()
     tree_ = CreateTree('49051').create_tree_by_list()
     print(lc2.sum_numbers(tree_))
 
-    lc3 = leetcodeSolution(236)
+    lc3 = LeetcodeSolution(236)
     lc3.execute()
 
     ancestor = lc3.lowest_common_ancestor(tree, tree.right.left.left, tree.right.right)
@@ -284,6 +284,6 @@ if __name__ == "__main__":
     print(ancestor_.val)
 
 
-    lc4 = leetcodeSolution(543)
+    lc4 = LeetcodeSolution(543)
     lc4.execute()
     print("二叉树的最大直径为:" + str(lc4.diameterOfBinaryTree(tree)))
