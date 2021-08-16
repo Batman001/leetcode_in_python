@@ -42,6 +42,34 @@ class Solution(object):
                 i -= 1
         return False
 
+    def searchMatrix(self, matrix, target):
+        start, end = 0, len(matrix)
+        loc = 0
+
+        # 二分查找目标行
+        while start < end:
+            mid = (start + end) // 2
+            if matrix[mid][0] == target:
+                return True
+            elif matrix[mid][0] < target:
+                loc = mid
+                start = mid + 1
+            else:
+                end = mid
+
+        l, r = 0, len(matrix[0]) - 1
+
+        # 二分查找目标行的全部数据
+        while l <= r:
+            mid = (l + r) // 2
+            if matrix[loc][mid] == target:
+                return True
+            elif matrix[loc][mid] > target:
+                r = mid - 1
+            else:
+                l = mid + 1
+        return False
+
 
 if __name__ == "__main__":
     s = Solution()
