@@ -32,7 +32,7 @@ class Solution(object):
             return False
         row = len(matrix)
         col = len(matrix[0])
-        i, j = row-1, 0
+        i, j = row - 1, 0
         while i >= 0 and j < col:
             if target == matrix[i][j]:
                 return True
