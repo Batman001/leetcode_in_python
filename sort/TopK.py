@@ -67,7 +67,8 @@ def random_int_list(start, stop, length):
 
 
 def main():
-    array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 34, 25, 564, 683, 26, 675]
+    array = random_int_list(-1000, 1000, 40)
+    print(array)
     heap = get_top_k(array, 9)
     result = heap_sort(heap)
     # 由于result中值为从小到大排列，然后对数字进行整理后输出
