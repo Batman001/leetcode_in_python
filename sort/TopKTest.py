@@ -10,7 +10,7 @@ def build_heap(array,k):
     :return: 
     """
     array = array[:k]
-    for i in range(int(k/2),-1,-1):
+    for i in range(k//2-1, -1, -1):
         minify(array, i)
     return array
 
@@ -35,8 +35,9 @@ def heap_sort_output(heap):
     result = []
     for i in range(len(heap)):
         heap_size = len(heap)
-        heap[0], heap[heap_size-1] = heap[heap_size -1], heap[0]
-        result.append(heap.pop())  #此时由于最小值交换到堆尾，所以直接pop方法得到最小值
+        heap[0], heap[heap_size-1] = heap[heap_size-1], heap[0]
+        # 此时由于最小值交换到堆尾，所以直接pop方法得到最小值, pop(0)返回第一个值,【pop(-1)等同于pop()返回最后一个值】
+        result.append(heap.pop(-1))
         minify(heap, 0)
     return result
 
@@ -61,15 +62,16 @@ def random_int_list(start, stop, length):
 def main(array, k):
     length = len(array)
     heap = build_heap(array, k)
-    for i in range(k,length):
-        if(array[i]<=heap[0]):
+    for i in range(k, length):
+        if array[i] <= heap[0]:
             continue
         else:
             heap[0] = array[i]
             minify(heap, 0)
     result = heap_sort_output(heap)
     result = result[::-1]
-    print(result)
+    print("前k大的数组为:", result)
+    print("第k大的元素为:", result[-1])
 
 
 if __name__ == "__main__":
