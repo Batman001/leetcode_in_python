@@ -10,6 +10,12 @@ class LeetcodeSolution(object):
         初始化参数
         :param question_num: leetcode题目编号
         """
+        # 设置二叉树最大直径的全局变量，仅供leetcode543使用
+        self.max_len = 0
+
+        # 设置二叉树的全部节点的计算的最大值，仅供leetcode124使用；切记不为0！！！！，否则对于只有一个根节点，且为负值的例子，不通过！！！！
+        self.max_val = float('-inf')
+
         if all_paths is None:
             all_paths = []
         self.question_num = question_num
@@ -216,20 +222,46 @@ class LeetcodeSolution(object):
         :type root: 二叉树根节点
         :rtype: int 返回最长直径
         """
-        if not root:
-            return 0
-        res = []
-        self.dfs(root, res)
-        return max(res) - 1
+        self.depth(root)
+        return self.max_len
 
-    def dfs(self, root, res):
-        if not root:
+    def depth(self, root):
+        """
+        1）step1：递归求解左右子树高度，返回根节点最大的高度
+        2）step2：在执行过程中不断更新max_len
+        :param root:
+        :return:
+        """
+        if root is None:
             return 0
-        left = self.dfs(root.left, res)
-        right = self.dfs(root.right, res)
-        res.append(left + right + 1)
-        return max(left, right) + 1
 
+        left_height = self.depth(root.left)
+        right_hight = self.depth(root.right)
+        self.max_len = max(self.max_len, left_height + right_hight)
+        return max(left_height, right_hight) + 1
+
+    def diameterOfBinaryTree(self, root):
+        """
+        leetcode 124 https://leetcode.cn/problems/binary-tree-maximum-path-sum/
+        二叉树中的 路径 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 至多出现一次 。
+        该路径 至少包含一个节点，且不一定经过根节点。路径和 是路径中各节点值的总和。
+        :param root:
+        :return:
+        """
+        self.depth_val(root)
+        return self.max_val
+
+    def depth_val(self, root):
+        if root is None:
+            return 0
+
+        # 这里需要比较0和左节点的val的值，用于判断需不需要加这个孩子节点的值，作为增加值
+        left_val = max(0, self.depth_val(root.left))
+        right_val = max(0, self.depth_val(root.right))
+
+        self.max_val = max(self.max_val, left_val+right_val+root.val)
+
+        return max(left_val, right_val) + root.val
 
 def merge_tree(t1, t2):
     """
