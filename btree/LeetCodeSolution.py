@@ -263,6 +263,7 @@ class LeetcodeSolution(object):
 
         return max(left_val, right_val) + root.val
 
+
 def merge_tree(t1, t2):
     """
     leetcode617,合并两个二叉树 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
@@ -282,6 +283,35 @@ def merge_tree(t1, t2):
     new_root.left = merge_tree(t1.left, t2.left)
     new_root.right = merge_tree(t1.right, t2.right)
     return new_root
+
+
+def sumNumers(root):
+    """
+    leetcode129:求根节点到叶节点数字之和
+    https://leetcode.cn/problems/sum-root-to-leaf-numbers/
+    :param root:
+    :return:
+    """
+    return helper(root, 0)
+
+
+def helper(root, sum):
+    """
+    计算sumNumber的帮助函数，主要通过该函数进行递归,计算左右节点的和
+    :param root: 根节点
+    :param sum: 目前的累积的和
+    :return:
+    """
+    if not root:
+        return 0
+
+    sum *= 10
+    sum += root.val
+
+    if not root.left and not root.right:
+        return sum
+
+    return helper(root.left, sum) + helper(root.right, sum)
 
 
 def invertTree(root):
