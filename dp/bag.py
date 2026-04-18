@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 
-
 def bag(n, cap, weight, value):
     """
     背包问题 在cap允许的范围内 选用价值更多的东西
